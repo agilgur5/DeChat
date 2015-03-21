@@ -1,0 +1,34 @@
+{
+  "name": "DeChat",
+  "version": "0.0.0",
+  "description": "Fully Decentralized, Serverless, Cryptographically Secure P2P Web Chat",
+  "main": "chat.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "bundle": "browserify chat_bundle.coffee -o chat_bundle_compiled.js",
+    "watch-js": "watchify chat_bundle.coffee -o chat_bundle_compiled.js",
+    "start": "npm run watch-js"
+  },
+  "dependencies": {
+    "react": "~0.12.0"
+  },
+  "devDependencies": {
+    "browserify": "~6.2.0",
+    "coffee-reactify": "~2.0.0",
+    "watchify": "~2.1.1"
+  },
+  "browserify": {
+    "transform": [
+      "coffee-reactify"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/agilgur5/DeChat.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/agilgur5/DeChat/issues"
+  }
+}
