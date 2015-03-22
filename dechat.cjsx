@@ -9,8 +9,6 @@ DeChat = React.createClass
       @forceUpdate()
     setInterval(update.bind(@), 1000)
   render: () ->
-    console.log ChatAPI
-    console.log ChatAPI.rooms[ChatAPI.currentRoomID].channels[@state.currentChannel]
     return <div className="s container">
       <div className="col-xs-9 biggest">
         <div className="foldIn row">
@@ -85,11 +83,9 @@ VideoContainer = React.createClass
 MessageContainer = React.createClass
   render: () -> 
     messages = []
-    console.log('bruuhhhh')
     for key of @props.messages
       elem = @props.messages[key]
       name = ChatAPI.rooms[ChatAPI.currentRoomID].users[elem.callerID] || ChatAPI.username
-      console.log(name)
       isme = if elem.callerID == ChatAPI.userID then "isme" else ""
       messages.push <div className={"messageContainer" + " " + isme}>
         <div className="username">{name}</div>
