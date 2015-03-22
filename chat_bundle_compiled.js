@@ -103,10 +103,7 @@ DeChat = React.createClass({
       "className": "videoname"
     }, "Shuo"))))), React.createElement("div", {
       "className": "chat col-xs-3"
-    }, React.createElement("i", {
-      "className": "fa fa-arrow-left",
-      "id": "expand"
-    }), React.createElement("section", {
+    }, React.createElement("section", {
       "className": "navbar"
     }, React.createElement("h4", null, "Conversation"), React.createElement("button", {
       "className": "camera"
@@ -117,31 +114,39 @@ DeChat = React.createClass({
     }, React.createElement("div", {
       "className": "messagesBox"
     }, React.createElement("div", {
-      "className": "messageContainer"
-    }, React.createElement("div", {
       "className": "username"
     }, "Ilan"), React.createElement("div", {
+      "className": "messageContainer"
+    }, React.createElement("div", {
+      "className": "message"
+    }, React.createElement("span", null, "Today this is a great day and I had so much fun coding"))), React.createElement("div", {
+      "className": "username"
+    }, "Ilan"), React.createElement("div", {
+      "className": "messageContainer"
+    }, React.createElement("div", {
       "className": "message"
     }, "geese")), React.createElement("div", {
+      "className": "username"
+    }, "Ilan"), React.createElement("div", {
       "className": "messageContainer"
     }, React.createElement("div", {
-      "className": "username"
-    }, "Anton"), React.createElement("div", {
       "className": "message"
-    }, "need to finish algo hw")), React.createElement("div", {
-      "className": "messageContainer"
-    }, React.createElement("div", {
-      "className": "username"
-    }, "Shuo"), React.createElement("div", {
-      "className": "message"
-    }, "Okay dokes")))), React.createElement("section", {
+    }, "geese")))), React.createElement("section", {
       "className": "inputBox row"
     }, React.createElement("input", {
+<<<<<<< HEAD
       "className": "newMessage col-xs-9",
       "placeholder": "chat here"
     }), React.createElement("button", {
       "type": "submit",
       "className": "col-xs-3 btn btn-primary"
+=======
+      "className": "newMessage",
+      "placeholder": "chat here"
+    }), React.createElement("button", {
+      "type": "submit",
+      "className": "send btn btn-primary"
+>>>>>>> cd2c79aadaf3921e98ee813dc6d395917f4716f0
     }, "Send"))));
   }
 });

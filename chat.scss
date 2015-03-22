@@ -3,11 +3,11 @@
     float:right;
     overflow: hidden;
     display:inline;
-    background-color: white;
+    background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(white), to(rgb(237, 241, 244)));
     padding: 0px;
     margin: 0px;
     font-size: 14px;
-    position: fixed;
+    position: absolute;
     top: 0px;
     right: 0px;
     h4 {
@@ -102,16 +102,29 @@
           }
         }
         .chatbox {
-          border: 1px solid black;
+          border: 3px groove black;
+          -webkit-box-shadow: rgb(46, 74, 117) 7px 6px 12px -2px;
+          box-shadow: rgb(46, 74, 117) 7px 6px 12px -2px;
           overflow: scroll;
           height: 80vh;
           .messagesBox {
+            .username{
+              margin:0.4em;
+            }
             .messageContainer {
-              border-bottom: 1px solid black;
-              .username {
-              }
+              margin:1.3em;
+              width:80%;
+              border: 1px solid black;
+              border-image-source: initial;
+              border-image-slice: initial;
+              border-image-width: initial;
+              border-image-outset: initial;
+              border-image-repeat: initial;
+              -webkit-box-shadow: rgb(46, 74, 117) 7px 6px 12px -2px;
+              box-shadow: rgb(46, 74, 117) 7px 6px 12px -2px;
               .message {
                 font-family: "Lato";
+                display:inline;
               }
             }
           }
@@ -119,6 +132,14 @@
         .inputBox {
           .newMessage{
             font-family: "Lato";
+            margin:15px;
+            width:64%;
+          }
+          .send{
+              margin-left:-0.8em;
+              height: 2.1em;
+              margin-top: -0.3em;
+              width: 24%;
           }
         }
       }
