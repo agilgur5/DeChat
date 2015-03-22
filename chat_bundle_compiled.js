@@ -5,8 +5,6 @@ React = require('react');
 
 DeChat = require('./dechat.cjsx');
 
-console.log(DeChat);
-
 chat_container_div = document.createElement("div");
 
 chat_container_div.id = "chat_container";
@@ -29,7 +27,117 @@ React = require('react');
 
 DeChat = React.createClass({
   render: function() {
-    return React.createElement("div", null, React.createElement("button", null, "DECHAT MOFO"), React.createElement("button", null, "DECHAT MOFO"), React.createElement("button", null, "DECHAT MOFO"), React.createElement("button", null, "DECHAT MOFO"), React.createElement("button", null, "DECHAT MOFO"), React.createElement("button", null, "DECHAT MOFO"), React.createElement("button", null, "DECHAT MOFO"), React.createElement("button", null, "DECHAT MOFO"), React.createElement("button", null, "DECHAT MOFO"), React.createElement("button", null, "DECHAT MOFO"), React.createElement("button", null, "DECHAT MOFO"), React.createElement("button", null, "DECHAT MOFO"), React.createElement("button", null, "DECHAT MOFO"), React.createElement("button", null, "DECHAT MOFO"), React.createElement("button", null, "DECHAT MOFO"), React.createElement("button", null, "DECHAT MOFO"));
+    return React.createElement("div", {
+      "class": "s container"
+    }, React.createElement("div", {
+      "class": "foldIn"
+    }, React.createElement("div", {
+      "class": "chatroom col-xs-1"
+    }, React.createElement("h4", null, "Channels"), React.createElement("div", {
+      "class": "room"
+    }, "FB"), React.createElement("div", {
+      "class": "room"
+    }, "AP"), React.createElement("div", {
+      "class": "room"
+    }, "AB"), React.createElement("div", {
+      "class": "room"
+    }, "SP"), React.createElement("div", {
+      "class": "room"
+    }, "FB"), React.createElement("div", {
+      "class": "room"
+    }, "AP"), React.createElement("div", {
+      "class": "room"
+    }, "AB"), React.createElement("div", {
+      "class": "room"
+    }, "SP")), React.createElement("div", {
+      "class": "usersBoxContainer col-xs-2"
+    }, React.createElement("h4", null, "Users"), React.createElement("div", {
+      "class": "users"
+    }, React.createElement("div", {
+      "class": "userbox"
+    }, React.createElement("div", {
+      "class": "camera_connect"
+    }, React.createElement("span", {
+      "class": "glyphicon glyphicon-camera"
+    })), React.createElement("p", {
+      "class": "username"
+    }, "Shuo"))), React.createElement("div", {
+      "class": "users"
+    }, React.createElement("div", {
+      "class": "userbox"
+    }, React.createElement("div", {
+      "class": "camera_connect"
+    }, React.createElement("span", {
+      "class": "glyphicon glyphicon-camera"
+    })), React.createElement("p", {
+      "class": "username"
+    }, "Ilan"))), React.createElement("div", {
+      "class": "users"
+    }, React.createElement("div", {
+      "class": "userbox"
+    }, React.createElement("div", {
+      "class": "camera_connect"
+    }, React.createElement("span", {
+      "class": "glyphicon glyphicon-camera"
+    })), React.createElement("p", {
+      "class": "username"
+    }, "Anton"))), React.createElement("div", {
+      "class": "users"
+    }, React.createElement("div", {
+      "class": "userbox"
+    }, React.createElement("div", {
+      "class": "camera_connect"
+    }, React.createElement("span", {
+      "class": "glyphicon glyphicon-camera"
+    })), React.createElement("p", {
+      "class": "username"
+    }, "Feifan")))), React.createElement("div", {
+      "class": "uservideos col-xs-6"
+    }, React.createElement("h4", null, "Video"), React.createElement("div", {
+      "class": "videobox"
+    }, React.createElement("div", {
+      "class": "video"
+    }), React.createElement("div", {
+      "class": "videoname"
+    }, "Shuo")))), React.createElement("div", {
+      "class": "chat col-xs-3"
+    }, React.createElement("i", {
+      "class": "fa fa-arrow-left",
+      "id": "expand"
+    }), React.createElement("section", {
+      "class": "navbar"
+    }, React.createElement("h4", null, "Conversation"), React.createElement("button", {
+      "class": "camera"
+    }, React.createElement("i", {
+      "class": "fa fa-video-camera"
+    }))), React.createElement("section", {
+      "class": "chatbox"
+    }, React.createElement("div", {
+      "class": "messagesBox"
+    }, React.createElement("div", {
+      "class": "messageContainer"
+    }, React.createElement("div", {
+      "class": "username"
+    }, "Ilan"), React.createElement("div", {
+      "class": "message"
+    }, "geese")), React.createElement("div", {
+      "class": "messageContainer"
+    }, React.createElement("div", {
+      "class": "username"
+    }, "Anton"), React.createElement("div", {
+      "class": "message"
+    }, "need to finish algo hw")), React.createElement("div", {
+      "class": "messageContainer"
+    }, React.createElement("div", {
+      "class": "username"
+    }, "Shuo"), React.createElement("div", {
+      "class": "message"
+    }, "Im fucked next week")))), React.createElement("section", {
+      "class": "inputBox row"
+    }, "\x3Cinput class=\"newMessage col-xs-8\" placeholder=\"chat here\"\x3E", React.createElement("button", {
+      "type": "submit",
+      "class": "col-xs-2 btn btn-primary"
+    }, "Send"))));
   }
 });
 
