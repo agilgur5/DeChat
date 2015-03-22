@@ -112,26 +112,24 @@ DeChat = React.createClass({
     }))), React.createElement("section", {
       "className": "chatbox"
     }, React.createElement("div", {
-      "className": "messagesBox"
+      "className": "messageContainer"
     }, React.createElement("div", {
       "className": "username"
     }, "Ilan"), React.createElement("div", {
-      "className": "messageContainer"
-    }, React.createElement("div", {
       "className": "message"
     }, React.createElement("span", null, "Today this is a great day and I had so much fun coding"))), React.createElement("div", {
-      "className": "username"
-    }, "Ilan"), React.createElement("div", {
       "className": "messageContainer"
     }, React.createElement("div", {
-      "className": "message"
-    }, "geese")), React.createElement("div", {
       "className": "username"
     }, "Ilan"), React.createElement("div", {
+      "className": "message"
+    }, React.createElement("span", null, "Today this is a great day and I had so much fun coding"))), React.createElement("div", {
       "className": "messageContainer"
     }, React.createElement("div", {
+      "className": "username"
+    }, "Ilan"), React.createElement("div", {
       "className": "message"
-    }, "geese")))), React.createElement("section", {
+    }, React.createElement("span", null, "Today this is a great day and I had so much fun coding")))), React.createElement("section", {
       "className": "inputBox row"
     }, React.createElement("input", {
       "className": "newMessage",

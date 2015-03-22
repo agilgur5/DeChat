@@ -66,20 +66,22 @@ DeChat = React.createClass
                   <button className="camera"><i className="fa fa-video-camera"></i></button>
                 </section>
                 <section className="chatbox">
-                  <div className="messagesBox">
+                  <div className="messageContainer">
                     <div className="username">Ilan</div>
-                    <div className="messageContainer">
-                      <div className="message">
-                        <span>Today this is a great day and I had so much fun coding</span>
-                      </div>
+                    <div className="message">
+                      <span>Today this is a great day and I had so much fun coding</span>
                     </div>
+                  </div>
+                  <div className="messageContainer">
                     <div className="username">Ilan</div>
-                    <div className="messageContainer">
-                      <div className="message">geese</div>
+                    <div className="message">
+                      <span>Today this is a great day and I had so much fun coding</span>
                     </div>
+                  </div>
+                  <div className="messageContainer">
                     <div className="username">Ilan</div>
-                    <div className="messageContainer">
-                      <div className="message">geese</div>
+                    <div className="message">
+                      <span>Today this is a great day and I had so much fun coding</span>
                     </div>
                   </div>
                 </section>
