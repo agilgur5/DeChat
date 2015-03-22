@@ -4,10 +4,13 @@ ChatAPI = require('./icecomm_wrapper.coffee')
 DeChat = React.createClass
   getInitialState: () ->
     return {currentChannel: "default"}
-  componentWillMount: () ->
-    ChatAPI.createName("Joe")
-    ChatAPI.createChatRoom()
+  componentDidMount: () ->
+    update = () ->
+      @forceUpdate()
+    setInterval(update.bind(@), 1000)
   render: () ->
+    console.log ChatAPI
+    console.log ChatAPI.rooms[ChatAPI.currentRoomID].channels[@state.currentChannel]
     return <div className="s container">
       <div className="col-xs-9 biggest">
         <div className="foldIn row">
@@ -60,15 +63,17 @@ DeChat = React.createClass
           <h4>Conversation</h4>
           <button className="camera"><i className="video fa fa-video-camera"></i>Video</button>
         </section>
-        <MessageContainer messages={ChatAPI.rooms[ChatAPI.currentRoomID].channels[@state.currentChannel].messages} />
+        <MessageContainer messages={ChatAPI.rooms[ChatAPI.currentRoomID].channels[@state.currentChannel]} />
         <MessageSender currentChannel={@state.currentChannel} />
       </div> 
     </div>
 
 VideoContainer = React.createClass
   render: () ->
-    videos = @props.users.map (elem) ->
-      return <li>
+    videos = []
+    for key of @props.users
+      elem = @props.users[key]
+      videos.push <li>
         <div className="videobox">
           <div className="video"><video src={elem.stream}></video></div>
         </div>
@@ -79,10 +84,14 @@ VideoContainer = React.createClass
 
 MessageContainer = React.createClass
   render: () -> 
-    messages = @props.messages.map (elem) ->
-      name = ChatAPI.rooms[ChatAPI.currentRoomID].users[elem.callerID]
+    messages = []
+    console.log('bruuhhhh')
+    for key of @props.messages
+      elem = @props.messages[key]
+      name = ChatAPI.rooms[ChatAPI.currentRoomID].users[elem.callerID] || ChatAPI.username
+      console.log(name)
       isme = if elem.callerID == ChatAPI.userID then "isme" else ""
-      return <div className={"messageContainer" + " " + isme}>
+      messages.push <div className={"messageContainer" + " " + isme}>
         <div className="username">{name}</div>
         <div className="message">
           <span>{elem.text}</span>
@@ -93,6 +102,8 @@ MessageContainer = React.createClass
     </section>
 
 MessageSender = React.createClass
+  getInitialState: () ->
+    return {value: ""}
   sendMessage: () ->
     ChatAPI.createMessage(@state.value, @props.currentChannel)
     @setState({value: ''})
