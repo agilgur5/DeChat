@@ -8,8 +8,11 @@
     "128": "dechat_logo.png"
   },
   "browser_action": {
-    "default_icon": "dechat_logo.png",
-    "default_popup": "popup.html"
+    "default_icon": "dechat_logo.png"
+  },
+  "background": {
+    "scripts": ["popup.js"],
+    "persistent": false
   },
   "permissions": [
     "activeTab",
