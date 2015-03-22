@@ -28,7 +28,7 @@ React = require('react');
 DeChat = React.createClass({
   render: function() {
     return React.createElement("div", {
-      "className": "s container"
+      "className": "s container fa"
     }, React.createElement("div", {
       "className": "col-xs-9"
     }, React.createElement("div", {
@@ -136,9 +136,12 @@ DeChat = React.createClass({
       "className": "message"
     }, "Okay dokes")))), React.createElement("section", {
       "className": "inputBox row"
-    }, "\x3Cinput className=\"newMessage col-xs-8\" placeholder=\"chat here\"\x3E", React.createElement("button", {
+    }, React.createElement("input", {
+      "className": "newMessage col-xs-9",
+      "placeholder": "chat here"
+    }), React.createElement("button", {
       "type": "submit",
-      "className": "col-xs-2 btn btn-primary"
+      "className": "col-xs-3 btn btn-primary"
     }, "Send"))));
   }
 });

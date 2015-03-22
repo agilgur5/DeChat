@@ -2,11 +2,9 @@ React = require('react')
 
 # var comm = new Icecomm('4Mt09Xq/gyUee2TyDE.qC1.Lg2cXec.ZWBq3AGy32ZnDpsnP0.');
 
-
-
 DeChat = React.createClass
   render: () ->
-    return <div className="s container">
+    return <div className="s container fa">
               <div className="col-xs-9">
                 <div className="foldIn row">
                   <div className="chatroom col-xs-2">
@@ -83,8 +81,8 @@ DeChat = React.createClass
                   </div>
                 </section>
                 <section className="inputBox row">
-                  <input className="newMessage col-xs-8" placeholder="chat here">
-                  <button type="submit" className="col-xs-2 btn btn-primary">Send</button>
+                <input className="newMessage col-xs-9" placeholder="chat here" /> 
+                  <button type="submit" className="col-xs-3 btn btn-primary">Send</button>
                 </section>
               </div> 
             </div>

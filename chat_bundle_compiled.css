@@ -1,3 +1,4 @@
+@import url(http://fonts.googleapis.com/css?family=Lato:100,300,400);
 /*!
  * Bootstrap v3.3.4 (http://getbootstrap.com)
  * Copyright 2011-2015 Twitter, Inc.
@@ -7035,14 +7036,15 @@ button.close {
   float: right;
   overflow: hidden;
   display: inline;
-  background-color: red;
+  background-color: white;
   padding: 0px;
   margin: 0px;
   font-size: 14px;
   position: fixed;
   top: 0px;
-  right: 0px;
-  font-family: proxima-nova, "Helvetica Neue", Arial, sans-serif; }
+  right: 0px; }
+  #chat_container h4 {
+    font-family: "Lato"; }
   #chat_container .s {
     height: 100vh; }
     #chat_container .s .foldIn .chatroom {
@@ -7050,11 +7052,13 @@ button.close {
       left: 0px;
       bottom: 0px;
       right: 0px;
-      height: 100%;
+      height: 100vh;
       border: 1px solid black;
+      border-right: none;
       text-align: center;
       overflow: scroll; }
       #chat_container .s .foldIn .chatroom .room {
+        font-family: "Lato";
         border: 1px solid black;
         padding: 10px 0px 10px 0px;
         margin: 10px 0px 10px 0px; }
@@ -7067,14 +7071,25 @@ button.close {
       right: 0px;
       border: 1px solid black; }
       #chat_container .s .foldIn .usersBoxContainer .h3 {
-        text-align: center; }
-      #chat_container .s .foldIn .usersBoxContainer .users {
-        border-top: 1px solid black; }
+        text-align: center;
+        font-family: "Lato"; }
+      #chat_container .s .foldIn .usersBoxContainer .users .userbox {
+        border: 1px solid black;
+        border-top: none;
+        border-bottom: none;
+        margin: 10px 0px 10px 0px;
+        font-family: "Lato"; }
         #chat_container .s .foldIn .usersBoxContainer .users .userbox .camera_connect {
           float: left; }
-    #chat_container .s .foldIn .uservideos .videobox {
-      margin: 10px 10px 10px 10px;
-      border: 1px solid black; }
+        #chat_container .s .foldIn .usersBoxContainer .users .userbox .username {
+          font-family: "Lato"; }
+    #chat_container .s .foldIn .uservideos {
+      border: 1px solid black;
+      border-left: none;
+      border-right: none; }
+      #chat_container .s .foldIn .uservideos .videobox {
+        margin: 10px 10px 10px 10px;
+        border: 1px solid black; }
     #chat_container .s .chat {
       height: 100vh;
       overflow: scroll;
@@ -7082,7 +7097,8 @@ button.close {
       left: 0px;
       bottom: 0px;
       right: 0px;
-      border: 1px solid black; }
+      border: 1px solid black;
+      font-family: "Lato"; }
       #chat_container .s .chat .fa-arrow-left {
         position: absolute;
         top: 300px;
@@ -7099,3 +7115,7 @@ button.close {
         height: 80vh; }
         #chat_container .s .chat .chatbox .messagesBox .messageContainer {
           border-bottom: 1px solid black; }
+          #chat_container .s .chat .chatbox .messagesBox .messageContainer .message {
+            font-family: "Lato"; }
+      #chat_container .s .chat .inputBox .newMessage {
+        font-family: "Lato"; }
