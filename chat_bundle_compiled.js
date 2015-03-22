@@ -189,7 +189,7 @@ module.exports = DeChat;
 
 
 },{"./icecomm_wrapper.coffee":4,"react":308}],4:[function(require,module,exports){
-var addLocalChannel, addLocalChatRoom, addLocalMessage, addLocalUser, addLocalUserName, comm, createChannel, createChatRoom, createMessage, createName, crypto, currentRoomID, decrypt, encrypt, joinChatRoom, receiveConnection, receiveData, rooms, sendy, userID, username;
+var addLocalChannel, addLocalChatRoom, addLocalMessage, addLocalUser, addLocalUserName, comm, createChannel, createChatRoom, createMessage, createName, crypto, currentRoomID, decrypt, encrypt, joinChatRoom, receiveConnection, receiveData, rooms, userID, username;
 
 crypto = require('crypto');
 
@@ -204,11 +204,11 @@ userID = 0;
 rooms = {};
 
 encrypt = function(data) {
-  return data;
+  return JSON.stringify(data);
 };
 
 decrypt = function(data) {
-  return data;
+  return JSON.parse(data);
 };
 
 createName = function(name) {
@@ -303,12 +303,6 @@ addLocalUser = function(stream, callerID) {
 receiveConnection = function(options) {
   return addLocalUser(options.stream, options.callerID);
 };
-
-sendy = function() {
-  return comm.send('yoooo');
-};
-
-setInterval(sendy, 1000);
 
 comm.on('data', receiveData);
 

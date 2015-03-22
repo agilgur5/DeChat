@@ -73,12 +73,12 @@ receiveData = (options) ->
   data = decrypt(options.data)
   callerID = options.callerID
   # decode the data stream
-  if data[message]?
-    addLocalMessage(data[message], data[channel], callerID)
-  else if data[channel]?
-    addLocalChannel(data[channel])
+  if data.message?
+    addLocalMessage(data.message, data.channel, callerID)
+  else if data.channel?
+    addLocalChannel(data.channel)
   else
-    addLocalUserName(data[name], callerID)
+    addLocalUserName(data.name, callerID)
 
 addLocalUser = (stream, callerID) ->
   rooms[currentRoomID].users[callerID] = {stream: stream, name: ""}
