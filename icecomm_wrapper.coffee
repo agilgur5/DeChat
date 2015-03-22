@@ -12,11 +12,11 @@ rooms = {}
 
 # encrypt data
 encrypt = (data) ->
-  return data#crypto.publicEncrypt(currentRoomID, new Buffer(JSON.stringify(data), 'utf8'))
+  return JSON.stringify(data)#crypto.publicEncrypt(currentRoomID, new Buffer(JSON.stringify(data), 'utf8'))
 
 # decrypt data
 decrypt = (data) ->
-  return data#JSON.parse(crypto.privateDecrypt(currentRoomID, data).toString('utf8'))
+  return JSON.parse(data)#JSON.parse(crypto.privateDecrypt(currentRoomID, data).toString('utf8'))
 
 createName = (name) ->
   username = name
@@ -89,8 +89,6 @@ receiveConnection = (options) ->
 
 
 # TODO: Flux the rooms variable and possibly username/userID/currentRoomID
-sendy = () -> comm.send('yoooo')
-setInterval(sendy, 1000)
 comm.on('data', receiveData)
 comm.on('connected', receiveConnection)
 
