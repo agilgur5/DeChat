@@ -1,3 +1,12 @@
+ .on {
+ }
+ .off {
+ }
+ .collapse {
+  left: 1300px;
+  width: 0px;
+ }
+
  #chat_container {
     z-index:99999999999;
     float:right;
@@ -10,12 +19,14 @@
     position: absolute;
     top: 0px;
     right: 0px;
+    position: fixed;
+
     h4 {
       font-family: "Lato";
     }
     .s {
       height: 100vh;
-      .foldIn {
+      #foldIn {
         .chatroom {
           top: 0px;
           left: 0px;
@@ -45,18 +56,19 @@
             text-align: center;
             font-family: "Lato";
           }
-          .users {
-            .userbox {
-              border: 1px solid black;
-              border-top: none;
-              border-bottom: none;
-              margin: 10px 0px 10px 0px;
-              font-family: "Lato";
-              .camera_connect {
-                float: left;
-              }
-              .username {
+          .usersContainer {
+            .users {
+              .userbox {
+                border-top: none;
+                border-bottom: none;
+                margin: 20px 0px 20px 0px;
                 font-family: "Lato";
+                .camera_connect {
+                  float: left;
+                }
+                .username {
+                  font-family: "Lato";
+                }
               }
             }
           }
@@ -79,6 +91,7 @@
       }
       .chat {
         height:  100vh;
+        width: 200px;
         overflow: scroll;
         top: 0px;
         left: 0px;

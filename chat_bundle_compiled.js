@@ -26,16 +26,54 @@ var DeChat, React;
 React = require('react');
 
 DeChat = React.createClass({
+  getInitialState: function() {
+    return {
+      collapse_state: "collapse",
+      container_state: "",
+      toggle: "off",
+      eighth: "",
+      fourth: ""
+    };
+  },
+  toggle: function(e) {
+    var container_state, cstate, eighth, fourth, toggle;
+    if (this.state.collapse_state === "") {
+      cstate = "collapse";
+      container_state = "";
+      toggle = "on";
+      eighth = "";
+      fourth = "";
+    } else {
+      cstate = "";
+      container_state = "container";
+      toggle = "off";
+      eighth = "col-xs-8";
+      fourth = "col-xs-4";
+    }
+    console.log(cstate);
+    console.log(container_state);
+    console.log(toggle);
+    return this.setState({
+      collapse_state: cstate,
+      container_state: container_state,
+      toggle_state: toggle,
+      eighth: eighth,
+      fourth: fourth
+    });
+  },
   render: function() {
     return React.createElement("div", {
-      "className": "s container fa"
+      "className": "s fa" + this.state.container_state
     }, React.createElement("div", {
-      "className": "col-xs-9"
+      "className": this.state.eighth
     }, React.createElement("div", {
-      "className": "foldIn row"
+      "className": "container " + this.state.collapse_state,
+      "id": "foldIn"
     }, React.createElement("div", {
-      "className": "chatroom col-xs-2"
-    }, React.createElement("h4", null, "Channels"), React.createElement("div", {
+      "className": "row"
+    }, React.createElement("div", {
+      "className": "chatroom col-xs-1"
+    }, React.createElement("h4", null), React.createElement("div", {
       "className": "room"
     }, "FB"), React.createElement("div", {
       "className": "room"
@@ -54,61 +92,50 @@ DeChat = React.createClass({
     }, "SP")), React.createElement("div", {
       "className": "usersBoxContainer col-xs-2"
     }, React.createElement("h4", null, "Users"), React.createElement("div", {
+      "className": "usersContainer"
+    }, React.createElement("div", {
       "className": "users"
     }, React.createElement("div", {
       "className": "userbox"
-    }, React.createElement("div", {
-      "className": "camera_connect"
-    }, React.createElement("span", {
-      "className": "glyphicon glyphicon-camera"
-    })), React.createElement("p", {
+    }, React.createElement("p", {
       "className": "username"
     }, "Shuo"))), React.createElement("div", {
       "className": "users"
     }, React.createElement("div", {
       "className": "userbox"
-    }, React.createElement("div", {
-      "className": "camera_connect"
-    }, React.createElement("span", {
-      "className": "glyphicon glyphicon-camera"
-    })), React.createElement("p", {
+    }, React.createElement("p", {
       "className": "username"
     }, "Ilan"))), React.createElement("div", {
       "className": "users"
     }, React.createElement("div", {
       "className": "userbox"
-    }, React.createElement("div", {
-      "className": "camera_connect"
-    }, React.createElement("span", {
-      "className": "glyphicon glyphicon-camera"
-    })), React.createElement("p", {
+    }, React.createElement("p", {
       "className": "username"
     }, "Anton"))), React.createElement("div", {
       "className": "users"
     }, React.createElement("div", {
       "className": "userbox"
-    }, React.createElement("div", {
-      "className": "camera_connect"
-    }, React.createElement("span", {
-      "className": "glyphicon glyphicon-camera"
-    })), React.createElement("p", {
+    }, React.createElement("p", {
       "className": "username"
-    }, "Feifan")))), React.createElement("div", {
-      "className": "uservideos col-xs-8"
+    }, "Feifan"))))), React.createElement("div", {
+      "className": "uservideos col-xs-9"
     }, React.createElement("h4", null, "Video"), React.createElement("div", {
       "className": "videobox"
     }, React.createElement("div", {
       "className": "video"
     }), React.createElement("div", {
       "className": "videoname"
-    }, "Shuo"))))), React.createElement("div", {
-      "className": "chat col-xs-3"
+    }, "Shuo")))))), React.createElement("div", {
+      "className": this.state.fourth
+    }, React.createElement("div", {
+      "className": "chat"
     }, React.createElement("section", {
       "className": "navbar"
     }, React.createElement("h4", null, "Conversation"), React.createElement("button", {
       "className": "camera"
     }, React.createElement("i", {
-      "className": "fa fa-video-camera"
+      "className": "fa fa-video-camera " + this.state.toggle_state,
+      "onClick": this.toggle
     }))), React.createElement("section", {
       "className": "chatbox"
     }, React.createElement("div", {
@@ -134,20 +161,12 @@ DeChat = React.createClass({
     }, "geese")))), React.createElement("section", {
       "className": "inputBox row"
     }, React.createElement("input", {
-<<<<<<< HEAD
-      "className": "newMessage col-xs-9",
-      "placeholder": "chat here"
-    }), React.createElement("button", {
-      "type": "submit",
-      "className": "col-xs-3 btn btn-primary"
-=======
       "className": "newMessage",
       "placeholder": "chat here"
     }), React.createElement("button", {
       "type": "submit",
       "className": "send btn btn-primary"
->>>>>>> cd2c79aadaf3921e98ee813dc6d395917f4716f0
-    }, "Send"))));
+    }, "Send")))));
   }
 });
 

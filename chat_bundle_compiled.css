@@ -7031,27 +7031,28 @@ button.close {
 .fa-medium:before {
   content: "\f23a"; }
 
+.collapse {
+  left: 1300px;
+  width: 0px; }
+
 #chat_container {
   z-index: 99999999999;
   float: right;
   overflow: hidden;
   display: inline;
-<<<<<<< HEAD
-  background-color: white;
-=======
   background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(white), to(#edf1f4));
->>>>>>> cd2c79aadaf3921e98ee813dc6d395917f4716f0
   padding: 0px;
   margin: 0px;
   font-size: 14px;
   position: absolute;
   top: 0px;
-  right: 0px; }
+  right: 0px;
+  position: fixed; }
   #chat_container h4 {
     font-family: "Lato"; }
   #chat_container .s {
     height: 100vh; }
-    #chat_container .s .foldIn .chatroom {
+    #chat_container .s #foldIn .chatroom {
       top: 0px;
       left: 0px;
       bottom: 0px;
@@ -7061,12 +7062,12 @@ button.close {
       border-right: none;
       text-align: center;
       overflow: scroll; }
-      #chat_container .s .foldIn .chatroom .room {
+      #chat_container .s #foldIn .chatroom .room {
         font-family: "Lato";
         border: 1px solid black;
         padding: 10px 0px 10px 0px;
         margin: 10px 0px 10px 0px; }
-    #chat_container .s .foldIn .usersBoxContainer {
+    #chat_container .s #foldIn .usersBoxContainer {
       height: 100vh;
       overflow: scroll;
       top: 0px;
@@ -7074,28 +7075,28 @@ button.close {
       bottom: 0px;
       right: 0px;
       border: 1px solid black; }
-      #chat_container .s .foldIn .usersBoxContainer .h3 {
+      #chat_container .s #foldIn .usersBoxContainer .h3 {
         text-align: center;
         font-family: "Lato"; }
-      #chat_container .s .foldIn .usersBoxContainer .users .userbox {
-        border: 1px solid black;
+      #chat_container .s #foldIn .usersBoxContainer .usersContainer .users .userbox {
         border-top: none;
         border-bottom: none;
-        margin: 10px 0px 10px 0px;
+        margin: 20px 0px 20px 0px;
         font-family: "Lato"; }
-        #chat_container .s .foldIn .usersBoxContainer .users .userbox .camera_connect {
+        #chat_container .s #foldIn .usersBoxContainer .usersContainer .users .userbox .camera_connect {
           float: left; }
-        #chat_container .s .foldIn .usersBoxContainer .users .userbox .username {
+        #chat_container .s #foldIn .usersBoxContainer .usersContainer .users .userbox .username {
           font-family: "Lato"; }
-    #chat_container .s .foldIn .uservideos {
+    #chat_container .s #foldIn .uservideos {
       border: 1px solid black;
       border-left: none;
       border-right: none; }
-      #chat_container .s .foldIn .uservideos .videobox {
+      #chat_container .s #foldIn .uservideos .videobox {
         margin: 10px 10px 10px 10px;
         border: 1px solid black; }
     #chat_container .s .chat {
       height: 100vh;
+      width: 200px;
       overflow: scroll;
       top: 0px;
       left: 0px;
@@ -7122,13 +7123,6 @@ button.close {
         #chat_container .s .chat .chatbox .messagesBox .username {
           margin: 0.4em; }
         #chat_container .s .chat .chatbox .messagesBox .messageContainer {
-<<<<<<< HEAD
-          border-bottom: 1px solid black; }
-          #chat_container .s .chat .chatbox .messagesBox .messageContainer .message {
-            font-family: "Lato"; }
-      #chat_container .s .chat .inputBox .newMessage {
-        font-family: "Lato"; }
-=======
           margin: 1.3em;
           width: 80%;
           border: 1px solid black;
@@ -7140,8 +7134,10 @@ button.close {
           -webkit-box-shadow: #2e4a75 7px 6px 12px -2px;
           box-shadow: #2e4a75 7px 6px 12px -2px; }
           #chat_container .s .chat .chatbox .messagesBox .messageContainer .message {
+            font-family: "Lato";
             display: inline; }
       #chat_container .s .chat .inputBox .newMessage {
+        font-family: "Lato";
         margin: 15px;
         width: 64%; }
       #chat_container .s .chat .inputBox .send {
@@ -7149,4 +7145,3 @@ button.close {
         height: 2.1em;
         margin-top: -0.3em;
         width: 24%; }
->>>>>>> cd2c79aadaf3921e98ee813dc6d395917f4716f0
