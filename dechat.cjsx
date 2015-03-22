@@ -2,6 +2,8 @@ React = require('react')
 ChatAPI = require('./icecomm_wrapper.coffee')
 
 DeChat = React.createClass
+  getInitialState: () ->
+    return {currentChannel: "default"}
   componentWillMount: () ->
     ChatAPI.createName("Joe")
     ChatAPI.createChatRoom()
