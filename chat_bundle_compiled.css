@@ -1,4 +1,7 @@
+@import url(css/boostrap.css);
+@import url(css/font-awesome.css);
 #chat_container {
+  z-index: 99999999999;
   float: right;
   overflow: hidden;
   display: inline;
@@ -66,3 +69,4 @@
         height: 80vh; }
         #chat_container .s .chat .chatbox .messagesBox .messageContainer {
           border-bottom: 1px solid black; }
+

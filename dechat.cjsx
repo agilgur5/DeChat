@@ -1,5 +1,8 @@
 React = require('react')
 
+# var comm = new Icecomm('4Mt09Xq/gyUee2TyDE.qC1.Lg2cXec.ZWBq3AGy32ZnDpsnP0.');
+
+
 DeChat = React.createClass
   render: () ->
     return <div className="s container">

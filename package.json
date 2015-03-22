@@ -5,8 +5,8 @@
   "main": "chat.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "bundle": "browserify chat_bundle.coffee -o chat_bundle_compiled.js & node-sass chat.scss chat.css",
-    "watch-js": "watchify chat_bundle.coffee -o chat_bundle_compiled.js",
+    "bundle": "browserify chat_bundle.coffee -o chat_bundle_compiled.js & node-sass chat_bundle.scss chat_bundle_compiled.css",
+    "watch-js": "watchify chat_bundle.coffee -o chat_bundle_compiled.js", 
     "start": "npm run watch-js"
   },
   "dependencies": {
