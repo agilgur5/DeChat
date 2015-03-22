@@ -21,7 +21,7 @@ require('./chat.cjsx');
 
 
 },{"./chat.cjsx":1}],3:[function(require,module,exports){
-var ChatAPI, DeChat, MessageContainer, MessageSender, React, VideoContainer;
+var ChatAPI, DeChat, MessageContainer, MessageSender, React, UsersList, VideoContainer;
 
 React = require('react');
 
@@ -41,8 +41,6 @@ DeChat = React.createClass({
     return setInterval(update.bind(this), 1000);
   },
   render: function() {
-    console.log(ChatAPI);
-    console.log(ChatAPI.rooms[ChatAPI.currentRoomID].channels[this.state.currentChannel]);
     return React.createElement("div", {
       "className": "s container"
     }, React.createElement("div", {
@@ -69,19 +67,9 @@ DeChat = React.createClass({
       "className": "room"
     }, "SP")), React.createElement("div", {
       "className": "usersBoxContainer col-xs-2"
-    }, React.createElement("h4", null, "Users"), React.createElement("ul", {
-      "class": "userlist"
-    }, React.createElement("div", {
-      "className": "users"
-    }, React.createElement("div", {
-      "className": "userbox"
-    }, React.createElement("p", {
-      "className": "username"
-    }, "Shuo")), React.createElement("div", {
-      "className": "userbox"
-    }, React.createElement("p", {
-      "className": "username"
-    }, "Shuo"))))), React.createElement("div", {
+    }, React.createElement("h4", null, "Users"), React.createElement(UsersList, {
+      "users": ChatAPI.rooms[ChatAPI.currentRoomID].users
+    })), React.createElement("div", {
       "className": "uservideos col-xs-8"
     }, React.createElement("h4", null, "Video"), React.createElement(VideoContainer, {
       "users": ChatAPI.rooms[ChatAPI.currentRoomID].users
@@ -98,6 +86,26 @@ DeChat = React.createClass({
     }), React.createElement(MessageSender, {
       "currentChannel": this.state.currentChannel
     })));
+  }
+});
+
+UsersList = React.createClass({
+  render: function() {
+    var elem, key, users;
+    users = [];
+    for (key in this.props.users) {
+      elem = this.props.users[key];
+      users.push(React.createElement("div", {
+        "className": "userbox"
+      }, React.createElement("p", {
+        "className": "username"
+      }, elem.name)));
+    }
+    return React.createElement("ul", {
+      "class": "userlist"
+    }, React.createElement("div", {
+      "className": "users"
+    }, users));
   }
 });
 
@@ -123,11 +131,9 @@ MessageContainer = React.createClass({
   render: function() {
     var elem, isme, key, messages, name;
     messages = [];
-    console.log('bruuhhhh');
     for (key in this.props.messages) {
       elem = this.props.messages[key];
       name = ChatAPI.rooms[ChatAPI.currentRoomID].users[elem.callerID] || ChatAPI.username;
-      console.log(name);
       isme = elem.callerID === ChatAPI.userID ? "isme" : "";
       messages.push(React.createElement("div", {
         "className": "messageContainer" + " " + isme
@@ -9718,28 +9724,14 @@ module.exports={
     "hash.js": "^1.0.0",
     "inherits": "^2.0.1"
   },
-  "gitHead": "17dc013761dd1efcfb868e2b06b0b897627b40be",
+  "readme": "# Elliptic [![Build Status](https://secure.travis-ci.org/indutny/elliptic.png)](http://travis-ci.org/indutny/elliptic)\n\nFast elliptic-curve cryptography in a plain javascript implementation.\n\nNOTE: Please take a look at http://safecurves.cr.yp.to/ before choosing a curve\nfor your cryptography operations.\n\n## Incentive\n\nECC is much slower than regular RSA cryptography, the JS implementations are\neven more slower.\n\n## Benchmarks\n\n```bash\n$ node benchmarks/index.js\nBenchmarking: sign\nelliptic#sign x 262 ops/sec ±0.51% (177 runs sampled)\neccjs#sign x 55.91 ops/sec ±0.90% (144 runs sampled)\n------------------------\nFastest is elliptic#sign\n========================\nBenchmarking: verify\nelliptic#verify x 113 ops/sec ±0.50% (166 runs sampled)\neccjs#verify x 48.56 ops/sec ±0.36% (125 runs sampled)\n------------------------\nFastest is elliptic#verify\n========================\nBenchmarking: gen\nelliptic#gen x 294 ops/sec ±0.43% (176 runs sampled)\neccjs#gen x 62.25 ops/sec ±0.63% (129 runs sampled)\n------------------------\nFastest is elliptic#gen\n========================\nBenchmarking: ecdh\nelliptic#ecdh x 136 ops/sec ±0.85% (156 runs sampled)\n------------------------\nFastest is elliptic#ecdh\n========================\n```\n\n## API\n\n### ECDSA\n\n```javascript\nvar EC = require('elliptic').ec;\n\n// Create and initialize EC context\n// (better do it once and reuse it)\nvar ec = new EC('secp256k1');\n\n// Generate keys\nvar key = ec.genKeyPair();\n\n// Sign message (must be an array, or it'll be treated as a hex sequence)\nvar msg = [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ];\nvar signature = key.sign(msg);\n\n// Export DER encoded signature in Array\nvar derSign = signature.toDER();\n\n// Verify signature\nconsole.log(key.verify(msg, derSign));\n```\n\n### ECDH\n\n```javascript\n// Generate keys\nvar key1 = ec.genKeyPair();\nvar key2 = ec.genKeyPair();\n\nvar shared1 = key1.derive(key2.getPublic());\nvar shared2 = key2.derive(key1.getPublic());\n\nconsole.log('Both shared secrets are BN instances');\nconsole.log(shared1.toString(16));\nconsole.log(shared2.toString(16));\n```\n\nNOTE: `.derive()` returns a [BN][1] instance.\n\n## Supported curves\n\nElliptic.js support following curve types:\n\n* Short Weierstrass\n* Montgomery\n* Edwards\n* Twisted Edwards\n\nFollowing curve 'presets' are embedded into the library:\n\n* `secp256k1`\n* `p192`\n* `p224`\n* `p256`\n* `curve25519`\n* `ed25519`\n\nNOTE: That `curve25519` could not be used for ECDSA, use `ed25519` instead.\n\n### Implementation details\n\nECDSA is using deterministic `k` value generation as per [RFC6979][0]. Most of\nthe curve operations are performed on non-affine coordinates (either projective\nor extended), various windowing techniques are used for different cases.\n\nAll operations are performed in reduction context using [bn.js][1], hashing is\nprovided by [hash.js][2]\n\n#### LICENSE\n\nThis software is licensed under the MIT License.\n\nCopyright Fedor Indutny, 2014.\n\nPermission is hereby granted, free of charge, to any person obtaining a\ncopy of this software and associated documentation files (the\n\"Software\"), to deal in the Software without restriction, including\nwithout limitation the rights to use, copy, modify, merge, publish,\ndistribute, sublicense, and/or sell copies of the Software, and to permit\npersons to whom the Software is furnished to do so, subject to the\nfollowing conditions:\n\nThe above copyright notice and this permission notice shall be included\nin all copies or substantial portions of the Software.\n\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS\nOR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF\nMERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN\nNO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,\nDAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR\nOTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE\nUSE OR OTHER DEALINGS IN THE SOFTWARE.\n\n[0]: http://tools.ietf.org/html/rfc6979\n[1]: https://github.com/indutny/bn.js\n[2]: https://github.com/indutny/hash.js\n",
+  "readmeFilename": "README.md",
   "_id": "elliptic@1.0.1",
-  "_shasum": "d180376b66a17d74995c837796362ac4d22aefe3",
-  "_from": "elliptic@>=1.0.0 <2.0.0",
-  "_npmVersion": "1.4.28",
-  "_npmUser": {
-    "name": "indutny",
-    "email": "fedor@indutny.com"
-  },
-  "maintainers": [
-    {
-      "name": "indutny",
-      "email": "fedor@indutny.com"
-    }
-  ],
   "dist": {
-    "shasum": "d180376b66a17d74995c837796362ac4d22aefe3",
-    "tarball": "http://registry.npmjs.org/elliptic/-/elliptic-1.0.1.tgz"
+    "shasum": "4bd45bf8b90fa1d3895d54677745ef7c144d1265"
   },
-  "directories": {},
-  "_resolved": "https://registry.npmjs.org/elliptic/-/elliptic-1.0.1.tgz",
-  "readme": "ERROR: No README data found!"
+  "_from": "elliptic@^1.0.0",
+  "_resolved": "https://registry.npmjs.org/elliptic/-/elliptic-1.0.1.tgz"
 }
 
 },{}],52:[function(require,module,exports){
@@ -12181,47 +12173,47 @@ var createECDH = require('crypto').createECDH;
 module.exports = createECDH || require('./browser');
 },{"./browser":74,"crypto":9}],76:[function(require,module,exports){
 module.exports=require(30)
-},{"/Users/Ilan/DeChat/node_modules/browserify/node_modules/crypto-browserify/node_modules/browserify-sign/node_modules/bn.js/lib/bn.js":30}],77:[function(require,module,exports){
+},{"/home/agilgur5/Desktop/GitHub/DeChat/node_modules/browserify/node_modules/crypto-browserify/node_modules/browserify-sign/node_modules/bn.js/lib/bn.js":30}],77:[function(require,module,exports){
 module.exports=require(32)
-},{"../package.json":96,"./elliptic/curve":80,"./elliptic/curves":83,"./elliptic/ec":84,"./elliptic/hmac-drbg":87,"./elliptic/utils":88,"/Users/Ilan/DeChat/node_modules/browserify/node_modules/crypto-browserify/node_modules/browserify-sign/node_modules/elliptic/lib/elliptic.js":32,"brorand":89}],78:[function(require,module,exports){
+},{"../package.json":96,"./elliptic/curve":80,"./elliptic/curves":83,"./elliptic/ec":84,"./elliptic/hmac-drbg":87,"./elliptic/utils":88,"/home/agilgur5/Desktop/GitHub/DeChat/node_modules/browserify/node_modules/crypto-browserify/node_modules/browserify-sign/node_modules/elliptic/lib/elliptic.js":32,"brorand":89}],78:[function(require,module,exports){
 module.exports=require(33)
-},{"../../elliptic":77,"/Users/Ilan/DeChat/node_modules/browserify/node_modules/crypto-browserify/node_modules/browserify-sign/node_modules/elliptic/lib/elliptic/curve/base.js":33,"bn.js":76}],79:[function(require,module,exports){
+},{"../../elliptic":77,"/home/agilgur5/Desktop/GitHub/DeChat/node_modules/browserify/node_modules/crypto-browserify/node_modules/browserify-sign/node_modules/elliptic/lib/elliptic/curve/base.js":33,"bn.js":76}],79:[function(require,module,exports){
 module.exports=require(34)
-},{"../../elliptic":77,"../curve":80,"/Users/Ilan/DeChat/node_modules/browserify/node_modules/crypto-browserify/node_modules/browserify-sign/node_modules/elliptic/lib/elliptic/curve/edwards.js":34,"bn.js":76,"inherits":145}],80:[function(require,module,exports){
+},{"../../elliptic":77,"../curve":80,"/home/agilgur5/Desktop/GitHub/DeChat/node_modules/browserify/node_modules/crypto-browserify/node_modules/browserify-sign/node_modules/elliptic/lib/elliptic/curve/edwards.js":34,"bn.js":76,"inherits":145}],80:[function(require,module,exports){
 module.exports=require(35)
-},{"./base":78,"./edwards":79,"./mont":81,"./short":82,"/Users/Ilan/DeChat/node_modules/browserify/node_modules/crypto-browserify/node_modules/browserify-sign/node_modules/elliptic/lib/elliptic/curve/index.js":35}],81:[function(require,module,exports){
+},{"./base":78,"./edwards":79,"./mont":81,"./short":82,"/home/agilgur5/Desktop/GitHub/DeChat/node_modules/browserify/node_modules/crypto-browserify/node_modules/browserify-sign/node_modules/elliptic/lib/elliptic/curve/index.js":35}],81:[function(require,module,exports){
 module.exports=require(36)
-},{"../../elliptic":77,"../curve":80,"/Users/Ilan/DeChat/node_modules/browserify/node_modules/crypto-browserify/node_modules/browserify-sign/node_modules/elliptic/lib/elliptic/curve/mont.js":36,"bn.js":76,"inherits":145}],82:[function(require,module,exports){
+},{"../../elliptic":77,"../curve":80,"/home/agilgur5/Desktop/GitHub/DeChat/node_modules/browserify/node_modules/crypto-browserify/node_modules/browserify-sign/node_modules/elliptic/lib/elliptic/curve/mont.js":36,"bn.js":76,"inherits":145}],82:[function(require,module,exports){
 module.exports=require(37)
-},{"../../elliptic":77,"../curve":80,"/Users/Ilan/DeChat/node_modules/browserify/node_modules/crypto-browserify/node_modules/browserify-sign/node_modules/elliptic/lib/elliptic/curve/short.js":37,"bn.js":76,"inherits":145}],83:[function(require,module,exports){
+},{"../../elliptic":77,"../curve":80,"/home/agilgur5/Desktop/GitHub/DeChat/node_modules/browserify/node_modules/crypto-browserify/node_modules/browserify-sign/node_modules/elliptic/lib/elliptic/curve/short.js":37,"bn.js":76,"inherits":145}],83:[function(require,module,exports){
 module.exports=require(38)
-},{"../elliptic":77,"/Users/Ilan/DeChat/node_modules/browserify/node_modules/crypto-browserify/node_modules/browserify-sign/node_modules/elliptic/lib/elliptic/curves.js":38,"bn.js":76,"hash.js":90}],84:[function(require,module,exports){
+},{"../elliptic":77,"/home/agilgur5/Desktop/GitHub/DeChat/node_modules/browserify/node_modules/crypto-browserify/node_modules/browserify-sign/node_modules/elliptic/lib/elliptic/curves.js":38,"bn.js":76,"hash.js":90}],84:[function(require,module,exports){
 module.exports=require(39)
-},{"../../elliptic":77,"./key":85,"./signature":86,"/Users/Ilan/DeChat/node_modules/browserify/node_modules/crypto-browserify/node_modules/browserify-sign/node_modules/elliptic/lib/elliptic/ec/index.js":39,"bn.js":76}],85:[function(require,module,exports){
+},{"../../elliptic":77,"./key":85,"./signature":86,"/home/agilgur5/Desktop/GitHub/DeChat/node_modules/browserify/node_modules/crypto-browserify/node_modules/browserify-sign/node_modules/elliptic/lib/elliptic/ec/index.js":39,"bn.js":76}],85:[function(require,module,exports){
 module.exports=require(40)
-},{"../../elliptic":77,"/Users/Ilan/DeChat/node_modules/browserify/node_modules/crypto-browserify/node_modules/browserify-sign/node_modules/elliptic/lib/elliptic/ec/key.js":40,"bn.js":76}],86:[function(require,module,exports){
+},{"../../elliptic":77,"/home/agilgur5/Desktop/GitHub/DeChat/node_modules/browserify/node_modules/crypto-browserify/node_modules/browserify-sign/node_modules/elliptic/lib/elliptic/ec/key.js":40,"bn.js":76}],86:[function(require,module,exports){
 module.exports=require(41)
-},{"../../elliptic":77,"/Users/Ilan/DeChat/node_modules/browserify/node_modules/crypto-browserify/node_modules/browserify-sign/node_modules/elliptic/lib/elliptic/ec/signature.js":41,"bn.js":76}],87:[function(require,module,exports){
+},{"../../elliptic":77,"/home/agilgur5/Desktop/GitHub/DeChat/node_modules/browserify/node_modules/crypto-browserify/node_modules/browserify-sign/node_modules/elliptic/lib/elliptic/ec/signature.js":41,"bn.js":76}],87:[function(require,module,exports){
 module.exports=require(42)
-},{"../elliptic":77,"/Users/Ilan/DeChat/node_modules/browserify/node_modules/crypto-browserify/node_modules/browserify-sign/node_modules/elliptic/lib/elliptic/hmac-drbg.js":42,"hash.js":90}],88:[function(require,module,exports){
+},{"../elliptic":77,"/home/agilgur5/Desktop/GitHub/DeChat/node_modules/browserify/node_modules/crypto-browserify/node_modules/browserify-sign/node_modules/elliptic/lib/elliptic/hmac-drbg.js":42,"hash.js":90}],88:[function(require,module,exports){
 module.exports=require(43)
-},{"/Users/Ilan/DeChat/node_modules/browserify/node_modules/crypto-browserify/node_modules/browserify-sign/node_modules/elliptic/lib/elliptic/utils.js":43,"bn.js":76}],89:[function(require,module,exports){
+},{"/home/agilgur5/Desktop/GitHub/DeChat/node_modules/browserify/node_modules/crypto-browserify/node_modules/browserify-sign/node_modules/elliptic/lib/elliptic/utils.js":43,"bn.js":76}],89:[function(require,module,exports){
 module.exports=require(44)
-},{"/Users/Ilan/DeChat/node_modules/browserify/node_modules/crypto-browserify/node_modules/browserify-sign/node_modules/elliptic/node_modules/brorand/index.js":44}],90:[function(require,module,exports){
+},{"/home/agilgur5/Desktop/GitHub/DeChat/node_modules/browserify/node_modules/crypto-browserify/node_modules/browserify-sign/node_modules/elliptic/node_modules/brorand/index.js":44}],90:[function(require,module,exports){
 module.exports=require(45)
-},{"./hash/common":91,"./hash/hmac":92,"./hash/ripemd":93,"./hash/sha":94,"./hash/utils":95,"/Users/Ilan/DeChat/node_modules/browserify/node_modules/crypto-browserify/node_modules/browserify-sign/node_modules/elliptic/node_modules/hash.js/lib/hash.js":45}],91:[function(require,module,exports){
+},{"./hash/common":91,"./hash/hmac":92,"./hash/ripemd":93,"./hash/sha":94,"./hash/utils":95,"/home/agilgur5/Desktop/GitHub/DeChat/node_modules/browserify/node_modules/crypto-browserify/node_modules/browserify-sign/node_modules/elliptic/node_modules/hash.js/lib/hash.js":45}],91:[function(require,module,exports){
 module.exports=require(46)
-},{"../hash":90,"/Users/Ilan/DeChat/node_modules/browserify/node_modules/crypto-browserify/node_modules/browserify-sign/node_modules/elliptic/node_modules/hash.js/lib/hash/common.js":46}],92:[function(require,module,exports){
+},{"../hash":90,"/home/agilgur5/Desktop/GitHub/DeChat/node_modules/browserify/node_modules/crypto-browserify/node_modules/browserify-sign/node_modules/elliptic/node_modules/hash.js/lib/hash/common.js":46}],92:[function(require,module,exports){
 module.exports=require(47)
-},{"../hash":90,"/Users/Ilan/DeChat/node_modules/browserify/node_modules/crypto-browserify/node_modules/browserify-sign/node_modules/elliptic/node_modules/hash.js/lib/hash/hmac.js":47}],93:[function(require,module,exports){
+},{"../hash":90,"/home/agilgur5/Desktop/GitHub/DeChat/node_modules/browserify/node_modules/crypto-browserify/node_modules/browserify-sign/node_modules/elliptic/node_modules/hash.js/lib/hash/hmac.js":47}],93:[function(require,module,exports){
 module.exports=require(48)
-},{"../hash":90,"/Users/Ilan/DeChat/node_modules/browserify/node_modules/crypto-browserify/node_modules/browserify-sign/node_modules/elliptic/node_modules/hash.js/lib/hash/ripemd.js":48}],94:[function(require,module,exports){
+},{"../hash":90,"/home/agilgur5/Desktop/GitHub/DeChat/node_modules/browserify/node_modules/crypto-browserify/node_modules/browserify-sign/node_modules/elliptic/node_modules/hash.js/lib/hash/ripemd.js":48}],94:[function(require,module,exports){
 module.exports=require(49)
-},{"../hash":90,"/Users/Ilan/DeChat/node_modules/browserify/node_modules/crypto-browserify/node_modules/browserify-sign/node_modules/elliptic/node_modules/hash.js/lib/hash/sha.js":49}],95:[function(require,module,exports){
+},{"../hash":90,"/home/agilgur5/Desktop/GitHub/DeChat/node_modules/browserify/node_modules/crypto-browserify/node_modules/browserify-sign/node_modules/elliptic/node_modules/hash.js/lib/hash/sha.js":49}],95:[function(require,module,exports){
 module.exports=require(50)
-},{"/Users/Ilan/DeChat/node_modules/browserify/node_modules/crypto-browserify/node_modules/browserify-sign/node_modules/elliptic/node_modules/hash.js/lib/hash/utils.js":50,"inherits":145}],96:[function(require,module,exports){
+},{"/home/agilgur5/Desktop/GitHub/DeChat/node_modules/browserify/node_modules/crypto-browserify/node_modules/browserify-sign/node_modules/elliptic/node_modules/hash.js/lib/hash/utils.js":50,"inherits":145}],96:[function(require,module,exports){
 module.exports=require(51)
-},{"/Users/Ilan/DeChat/node_modules/browserify/node_modules/crypto-browserify/node_modules/browserify-sign/node_modules/elliptic/package.json":51}],97:[function(require,module,exports){
+},{"/home/agilgur5/Desktop/GitHub/DeChat/node_modules/browserify/node_modules/crypto-browserify/node_modules/browserify-sign/node_modules/elliptic/package.json":51}],97:[function(require,module,exports){
 (function (Buffer){
 'use strict';
 var inherits = require('inherits')
@@ -13879,7 +13871,7 @@ module.exports={
 }
 },{}],113:[function(require,module,exports){
 module.exports=require(30)
-},{"/Users/Ilan/DeChat/node_modules/browserify/node_modules/crypto-browserify/node_modules/browserify-sign/node_modules/bn.js/lib/bn.js":30}],114:[function(require,module,exports){
+},{"/home/agilgur5/Desktop/GitHub/DeChat/node_modules/browserify/node_modules/crypto-browserify/node_modules/browserify-sign/node_modules/bn.js/lib/bn.js":30}],114:[function(require,module,exports){
 var bn = require('bn.js');
 var brorand = require('brorand');
 
@@ -13997,7 +13989,7 @@ MillerRabin.prototype.getDivisor = function getDivisor(n, k) {
 
 },{"bn.js":113,"brorand":115}],115:[function(require,module,exports){
 module.exports=require(44)
-},{"/Users/Ilan/DeChat/node_modules/browserify/node_modules/crypto-browserify/node_modules/browserify-sign/node_modules/elliptic/node_modules/brorand/index.js":44}],116:[function(require,module,exports){
+},{"/home/agilgur5/Desktop/GitHub/DeChat/node_modules/browserify/node_modules/crypto-browserify/node_modules/browserify-sign/node_modules/elliptic/node_modules/brorand/index.js":44}],116:[function(require,module,exports){
 (function (Buffer){
 var createHmac = require('create-hmac')
 
@@ -14111,7 +14103,7 @@ function i2ops(c) {
 }).call(this,require("buffer").Buffer)
 },{"buffer":5,"create-hash":97}],119:[function(require,module,exports){
 module.exports=require(30)
-},{"/Users/Ilan/DeChat/node_modules/browserify/node_modules/crypto-browserify/node_modules/browserify-sign/node_modules/bn.js/lib/bn.js":30}],120:[function(require,module,exports){
+},{"/home/agilgur5/Desktop/GitHub/DeChat/node_modules/browserify/node_modules/crypto-browserify/node_modules/browserify-sign/node_modules/bn.js/lib/bn.js":30}],120:[function(require,module,exports){
 (function (Buffer){
 var bn = require('bn.js');
 var randomBytes = require('randombytes');
@@ -14204,7 +14196,7 @@ module.exports = function evp(password, salt, keyLen) {
 }).call(this,require("buffer").Buffer)
 },{"buffer":5,"create-hash":97}],122:[function(require,module,exports){
 module.exports=require(53)
-},{"/Users/Ilan/DeChat/node_modules/browserify/node_modules/crypto-browserify/node_modules/browserify-sign/node_modules/parse-asn1/aesid.json":53}],123:[function(require,module,exports){
+},{"/home/agilgur5/Desktop/GitHub/DeChat/node_modules/browserify/node_modules/crypto-browserify/node_modules/browserify-sign/node_modules/parse-asn1/aesid.json":53}],123:[function(require,module,exports){
 // from https://github.com/indutny/self-signed/blob/gh-pages/lib/asn1.js
 // Fedor, you are amazing.
 
@@ -14477,31 +14469,31 @@ function decrypt(data, password) {
 }).call(this,require("buffer").Buffer)
 },{"./aesid.json":122,"./asn1":123,"./fixProc":124,"browserify-aes":13,"buffer":5,"pbkdf2-compat":116}],126:[function(require,module,exports){
 module.exports=require(58)
-},{"./asn1/api":127,"./asn1/base":129,"./asn1/constants":133,"./asn1/decoders":135,"./asn1/encoders":137,"/Users/Ilan/DeChat/node_modules/browserify/node_modules/crypto-browserify/node_modules/browserify-sign/node_modules/parse-asn1/node_modules/asn1.js/lib/asn1.js":58,"bn.js":119}],127:[function(require,module,exports){
+},{"./asn1/api":127,"./asn1/base":129,"./asn1/constants":133,"./asn1/decoders":135,"./asn1/encoders":137,"/home/agilgur5/Desktop/GitHub/DeChat/node_modules/browserify/node_modules/crypto-browserify/node_modules/browserify-sign/node_modules/parse-asn1/node_modules/asn1.js/lib/asn1.js":58,"bn.js":119}],127:[function(require,module,exports){
 module.exports=require(59)
-},{"../asn1":126,"/Users/Ilan/DeChat/node_modules/browserify/node_modules/crypto-browserify/node_modules/browserify-sign/node_modules/parse-asn1/node_modules/asn1.js/lib/asn1/api.js":59,"inherits":145,"vm":161}],128:[function(require,module,exports){
+},{"../asn1":126,"/home/agilgur5/Desktop/GitHub/DeChat/node_modules/browserify/node_modules/crypto-browserify/node_modules/browserify-sign/node_modules/parse-asn1/node_modules/asn1.js/lib/asn1/api.js":59,"inherits":145,"vm":161}],128:[function(require,module,exports){
 module.exports=require(60)
-},{"../base":129,"/Users/Ilan/DeChat/node_modules/browserify/node_modules/crypto-browserify/node_modules/browserify-sign/node_modules/parse-asn1/node_modules/asn1.js/lib/asn1/base/buffer.js":60,"buffer":5,"inherits":145}],129:[function(require,module,exports){
+},{"../base":129,"/home/agilgur5/Desktop/GitHub/DeChat/node_modules/browserify/node_modules/crypto-browserify/node_modules/browserify-sign/node_modules/parse-asn1/node_modules/asn1.js/lib/asn1/base/buffer.js":60,"buffer":5,"inherits":145}],129:[function(require,module,exports){
 module.exports=require(61)
-},{"./buffer":128,"./node":130,"./reporter":131,"/Users/Ilan/DeChat/node_modules/browserify/node_modules/crypto-browserify/node_modules/browserify-sign/node_modules/parse-asn1/node_modules/asn1.js/lib/asn1/base/index.js":61}],130:[function(require,module,exports){
+},{"./buffer":128,"./node":130,"./reporter":131,"/home/agilgur5/Desktop/GitHub/DeChat/node_modules/browserify/node_modules/crypto-browserify/node_modules/browserify-sign/node_modules/parse-asn1/node_modules/asn1.js/lib/asn1/base/index.js":61}],130:[function(require,module,exports){
 module.exports=require(62)
-},{"../base":129,"/Users/Ilan/DeChat/node_modules/browserify/node_modules/crypto-browserify/node_modules/browserify-sign/node_modules/parse-asn1/node_modules/asn1.js/lib/asn1/base/node.js":62,"minimalistic-assert":138}],131:[function(require,module,exports){
+},{"../base":129,"/home/agilgur5/Desktop/GitHub/DeChat/node_modules/browserify/node_modules/crypto-browserify/node_modules/browserify-sign/node_modules/parse-asn1/node_modules/asn1.js/lib/asn1/base/node.js":62,"minimalistic-assert":138}],131:[function(require,module,exports){
 module.exports=require(63)
-},{"/Users/Ilan/DeChat/node_modules/browserify/node_modules/crypto-browserify/node_modules/browserify-sign/node_modules/parse-asn1/node_modules/asn1.js/lib/asn1/base/reporter.js":63,"inherits":145}],132:[function(require,module,exports){
+},{"/home/agilgur5/Desktop/GitHub/DeChat/node_modules/browserify/node_modules/crypto-browserify/node_modules/browserify-sign/node_modules/parse-asn1/node_modules/asn1.js/lib/asn1/base/reporter.js":63,"inherits":145}],132:[function(require,module,exports){
 module.exports=require(64)
-},{"../constants":133,"/Users/Ilan/DeChat/node_modules/browserify/node_modules/crypto-browserify/node_modules/browserify-sign/node_modules/parse-asn1/node_modules/asn1.js/lib/asn1/constants/der.js":64}],133:[function(require,module,exports){
+},{"../constants":133,"/home/agilgur5/Desktop/GitHub/DeChat/node_modules/browserify/node_modules/crypto-browserify/node_modules/browserify-sign/node_modules/parse-asn1/node_modules/asn1.js/lib/asn1/constants/der.js":64}],133:[function(require,module,exports){
 module.exports=require(65)
-},{"./der":132,"/Users/Ilan/DeChat/node_modules/browserify/node_modules/crypto-browserify/node_modules/browserify-sign/node_modules/parse-asn1/node_modules/asn1.js/lib/asn1/constants/index.js":65}],134:[function(require,module,exports){
+},{"./der":132,"/home/agilgur5/Desktop/GitHub/DeChat/node_modules/browserify/node_modules/crypto-browserify/node_modules/browserify-sign/node_modules/parse-asn1/node_modules/asn1.js/lib/asn1/constants/index.js":65}],134:[function(require,module,exports){
 module.exports=require(66)
-},{"../../asn1":126,"/Users/Ilan/DeChat/node_modules/browserify/node_modules/crypto-browserify/node_modules/browserify-sign/node_modules/parse-asn1/node_modules/asn1.js/lib/asn1/decoders/der.js":66,"inherits":145}],135:[function(require,module,exports){
+},{"../../asn1":126,"/home/agilgur5/Desktop/GitHub/DeChat/node_modules/browserify/node_modules/crypto-browserify/node_modules/browserify-sign/node_modules/parse-asn1/node_modules/asn1.js/lib/asn1/decoders/der.js":66,"inherits":145}],135:[function(require,module,exports){
 module.exports=require(67)
-},{"./der":134,"/Users/Ilan/DeChat/node_modules/browserify/node_modules/crypto-browserify/node_modules/browserify-sign/node_modules/parse-asn1/node_modules/asn1.js/lib/asn1/decoders/index.js":67}],136:[function(require,module,exports){
+},{"./der":134,"/home/agilgur5/Desktop/GitHub/DeChat/node_modules/browserify/node_modules/crypto-browserify/node_modules/browserify-sign/node_modules/parse-asn1/node_modules/asn1.js/lib/asn1/decoders/index.js":67}],136:[function(require,module,exports){
 module.exports=require(68)
-},{"../../asn1":126,"/Users/Ilan/DeChat/node_modules/browserify/node_modules/crypto-browserify/node_modules/browserify-sign/node_modules/parse-asn1/node_modules/asn1.js/lib/asn1/encoders/der.js":68,"buffer":5,"inherits":145}],137:[function(require,module,exports){
+},{"../../asn1":126,"/home/agilgur5/Desktop/GitHub/DeChat/node_modules/browserify/node_modules/crypto-browserify/node_modules/browserify-sign/node_modules/parse-asn1/node_modules/asn1.js/lib/asn1/encoders/der.js":68,"buffer":5,"inherits":145}],137:[function(require,module,exports){
 module.exports=require(69)
-},{"./der":136,"/Users/Ilan/DeChat/node_modules/browserify/node_modules/crypto-browserify/node_modules/browserify-sign/node_modules/parse-asn1/node_modules/asn1.js/lib/asn1/encoders/index.js":69}],138:[function(require,module,exports){
+},{"./der":136,"/home/agilgur5/Desktop/GitHub/DeChat/node_modules/browserify/node_modules/crypto-browserify/node_modules/browserify-sign/node_modules/parse-asn1/node_modules/asn1.js/lib/asn1/encoders/index.js":69}],138:[function(require,module,exports){
 module.exports=require(70)
-},{"/Users/Ilan/DeChat/node_modules/browserify/node_modules/crypto-browserify/node_modules/browserify-sign/node_modules/parse-asn1/node_modules/asn1.js/node_modules/minimalistic-assert/index.js":70}],139:[function(require,module,exports){
+},{"/home/agilgur5/Desktop/GitHub/DeChat/node_modules/browserify/node_modules/crypto-browserify/node_modules/browserify-sign/node_modules/parse-asn1/node_modules/asn1.js/node_modules/minimalistic-assert/index.js":70}],139:[function(require,module,exports){
 (function (Buffer){
 var parseKeys = require('parse-asn1');
 var mgf = require('./mgf');

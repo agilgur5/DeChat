@@ -25,16 +25,7 @@ DeChat = React.createClass
           </div>
           <div className="usersBoxContainer col-xs-2">
             <h4>Users</h4>
-            <ul class="userlist">
-            <div className="users">
-              <div className="userbox">
-                <p className="username">Shuo</p>
-              </div>
-              <div className="userbox">
-                <p className="username">Shuo</p>
-              </div>
-            </div>
-            </ul>
+            <UsersList users={ChatAPI.rooms[ChatAPI.currentRoomID].users} />
           </div>
           <div className="uservideos col-xs-8">
             <h4>Video</h4>
@@ -51,6 +42,20 @@ DeChat = React.createClass
         <MessageSender currentChannel={@state.currentChannel} />
       </div> 
     </div>
+
+UsersList = React.createClass
+  render: () ->
+    users = []
+    for key of @props.users
+      elem = @props.users[key]
+      users.push <div className="userbox">
+        <p className="username">{elem.name}</p>
+      </div>
+    return <ul class="userlist">
+      <div className="users">
+        {users}
+      </div>
+    </ul>
 
 VideoContainer = React.createClass
   render: () ->
