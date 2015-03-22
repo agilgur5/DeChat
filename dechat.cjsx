@@ -49,21 +49,60 @@ DeChat = React.createClass
                   </div>
                   <div className="uservideos col-xs-8">
                     <h4>Video</h4>
-                    <div className="videobox">
-                      <div className="video">
-                        
-                      </div>
-                      <div className="videoname">
-                        Shuo
-                      </div>
-                    </div>
+                    <ul>
+                      <li>
+                        <div className="videobox">
+                          <div className="video"><video></video></div>
+                        </div>
+                      </li>
+                      <li>
+                        <div className="videobox">
+                          <div className="video"><video></video></div>
+                        </div>
+                      </li>
+                      <li>
+                        <div className="videobox">
+                          <div className="video"><video></video></div>
+                        </div>
+                      </li>
+                      <li>
+                        <div className="videobox">
+                          <div className="video"><video></video></div>
+                        </div>
+                      </li>
+                      <li>
+                        <div className="videobox">
+                          <div className="video"><video></video></div>
+                        </div>
+                      </li>
+                      <li>
+                        <div className="videobox">
+                          <div className="video"><video></video></div>
+                        </div>
+                      </li>
+                      <li>
+                        <div className="videobox">
+                          <div className="video"><video></video></div>
+                        </div>
+                      </li>
+                      <li>
+                        <div className="videobox">
+                          <div className="video"><video></video></div>
+                        </div>
+                      </li>
+                      <li>
+                        <div className="videobox">
+                          <div className="video"><video></video></div>
+                        </div>
+                      </li>
+                    </ul>
                   </div>
                 </div>
               </div>
               <div className="chat col-xs-3">
                 <section className="navbar">
                   <h4>Conversation</h4>
-                  <button className="camera"><i className="fa fa-video-camera"></i></button>
+                  <button className="camera"><i className="video fa fa-video-camera"></i>Video</button>
                 </section>
                 <section className="chatbox">
                   <div className="isme messageContainer">
@@ -86,8 +125,8 @@ DeChat = React.createClass
                   </div>
                 </section>
                 <section className="inputBox row">
-                  <input className="newMessage" placeholder="chat here"></input>
-                  <button type="submit" className="send btn btn-primary">Send</button>
+                    <input className="newMessage" placeholder="chat here"></input>
+                    <button type="submit" className="send btn btn-primary">Send</button>
                 </section>
               </div> 
             </div>

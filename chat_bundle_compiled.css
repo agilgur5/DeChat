@@ -7072,9 +7072,20 @@ button.close {
         border-top: 1px solid black; }
         #chat_container .s .foldIn .usersBoxContainer .users .userbox .camera_connect {
           float: left; }
-    #chat_container .s .foldIn .uservideos .videobox {
-      margin: 10px 10px 10px 10px;
-      border: 1px solid black; }
+    #chat_container .s .foldIn .uservideos {
+      border-top: 1px solid black; }
+      #chat_container .s .foldIn .uservideos li {
+        list-style: none; }
+      #chat_container .s .foldIn .uservideos li .video {
+        float: left;
+        margin: 10px;
+        border: 5px solid #fff;
+        transition: all .3s ease; }
+      #chat_container .s .foldIn .uservideos li .video:hover {
+        -webkit-box-shadow: 0px 0px 5px #fff; }
+      #chat_container .s .foldIn .uservideos .videobox video {
+        width: 150px;
+        height: 150px; }
     #chat_container .s .chat {
       border: 3px groove black;
       -webkit-box-shadow: #2e4a75 7px 6px 12px -2px;
@@ -7091,14 +7102,19 @@ button.close {
         top: 300px;
         padding-right: -10px;
         margin-right: -10px; }
-      #chat_container .s .chat .navbar h4 {
-        float: left; }
-      #chat_container .s .chat .navbar .camera {
-        margin: 5px 1px 0px 0px;
-        float: right; }
+      #chat_container .s .chat .navbar {
+        margin-bottom: 0px;
+        min-height: 20px; }
+        #chat_container .s .chat .navbar h4 {
+          float: left; }
+        #chat_container .s .chat .navbar .video {
+          padding-right: 4px; }
+        #chat_container .s .chat .navbar .camera {
+          margin: 5px 1px 0px 0px;
+          float: right; }
       #chat_container .s .chat .chatbox {
         overflow: scroll;
-        height: 80vh; }
+        height: 100vh; }
         #chat_container .s .chat .chatbox .messageContainer {
           width: 90%;
           margin-left: 0px;
@@ -7128,7 +7144,9 @@ button.close {
         margin: 15px;
         width: 64%; }
       #chat_container .s .chat .inputBox .send {
+        background: #00CC66;
         margin-left: -0.8em;
         height: 2.1em;
+        line-height: 1.05em;
         margin-top: -0.3em;
         width: 24%; }

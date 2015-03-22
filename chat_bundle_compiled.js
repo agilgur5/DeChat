@@ -95,21 +95,51 @@ DeChat = React.createClass({
       "className": "username"
     }, "Feifan")))), React.createElement("div", {
       "className": "uservideos col-xs-8"
-    }, React.createElement("h4", null, "Video"), React.createElement("div", {
+    }, React.createElement("h4", null, "Video"), React.createElement("ul", null, React.createElement("li", null, React.createElement("div", {
       "className": "videobox"
     }, React.createElement("div", {
       "className": "video"
-    }), React.createElement("div", {
-      "className": "videoname"
-    }, "Shuo"))))), React.createElement("div", {
+    }, React.createElement("video", null)))), React.createElement("li", null, React.createElement("div", {
+      "className": "videobox"
+    }, React.createElement("div", {
+      "className": "video"
+    }, React.createElement("video", null)))), React.createElement("li", null, React.createElement("div", {
+      "className": "videobox"
+    }, React.createElement("div", {
+      "className": "video"
+    }, React.createElement("video", null)))), React.createElement("li", null, React.createElement("div", {
+      "className": "videobox"
+    }, React.createElement("div", {
+      "className": "video"
+    }, React.createElement("video", null)))), React.createElement("li", null, React.createElement("div", {
+      "className": "videobox"
+    }, React.createElement("div", {
+      "className": "video"
+    }, React.createElement("video", null)))), React.createElement("li", null, React.createElement("div", {
+      "className": "videobox"
+    }, React.createElement("div", {
+      "className": "video"
+    }, React.createElement("video", null)))), React.createElement("li", null, React.createElement("div", {
+      "className": "videobox"
+    }, React.createElement("div", {
+      "className": "video"
+    }, React.createElement("video", null)))), React.createElement("li", null, React.createElement("div", {
+      "className": "videobox"
+    }, React.createElement("div", {
+      "className": "video"
+    }, React.createElement("video", null)))), React.createElement("li", null, React.createElement("div", {
+      "className": "videobox"
+    }, React.createElement("div", {
+      "className": "video"
+    }, React.createElement("video", null)))))))), React.createElement("div", {
       "className": "chat col-xs-3"
     }, React.createElement("section", {
       "className": "navbar"
     }, React.createElement("h4", null, "Conversation"), React.createElement("button", {
       "className": "camera"
     }, React.createElement("i", {
-      "className": "fa fa-video-camera"
-    }))), React.createElement("section", {
+      "className": "video fa fa-video-camera"
+    }), "Video")), React.createElement("section", {
       "className": "chatbox"
     }, React.createElement("div", {
       "className": "isme messageContainer"
