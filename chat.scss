@@ -1,5 +1,4 @@
-/*  #chat_container {
-    width:100%;
+ #chat_container {
     z-index:99999999999;
     float:right;
     overflow: hidden;
@@ -8,8 +7,10 @@
     padding: 0px;
     margin: 0px;
     font-size: 14px;
+    position: absolute;
+    top: 0px;
+    right: 0px;
     font-family: proxima-nova, "Helvetica Neue", Arial, sans-serif;
-*/
     .s {
       height: 100vh;
       .foldIn {
@@ -25,8 +26,7 @@
           .room {
             border: 1px solid black;
             padding: 10px 0px 10px 0px;
-            margin: 10px 0px 10px 0px;
-            
+            margin: 10px 0px 10px 0px;     
           }
         }
         .usersBoxContainer {
@@ -105,10 +105,8 @@
         }
         .inputBox {
           .newMessage{
-
           }
-
         }
       }
     }
-/*}*/
+  }

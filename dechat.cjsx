@@ -2,85 +2,85 @@ React = require('react')
 
 DeChat = React.createClass
   render: () ->
-    return <div class="s container">
-      <div class="foldIn">
-        <div class="chatroom col-xs-1">
-          <h4>Channels</h4>
-          <div class="room">FB</div>
-          <div class="room">AP</div>
-          <div class="room">AB</div>
-          <div class="room">SP</div>
-          <div class="room">FB</div>
-          <div class="room">AP</div>
-          <div class="room">AB</div>
-          <div class="room">SP</div>
-        </div>
-        <div class="usersBoxContainer col-xs-2">
-          <h4>Users</h4>
-          <div class="users">
-            <div class="userbox">
-              <div class="camera_connect"><span class="glyphicon glyphicon-camera"></span></div>
-              <p class="username">Shuo</p>
+    return <div className="s container">
+              <div className="foldIn">
+                <div className="chatroom col-xs-1">
+                  <h4>Channels</h4>
+                  <div className="room">FB</div>
+                  <div className="room">AP</div>
+                  <div className="room">AB</div>
+                  <div className="room">SP</div>
+                  <div className="room">FB</div>
+                  <div className="room">AP</div>
+                  <div className="room">AB</div>
+                  <div className="room">SP</div>
+                </div>
+                <div className="usersBoxContainer col-xs-2">
+                  <h4>Users</h4>
+                  <div className="users">
+                    <div className="userbox">
+                      <div className="camera_connect"><span className="glyphicon glyphicon-camera"></span></div>
+                      <p className="username">Shuo</p>
+                    </div>
+                  </div>
+                  <div className="users">
+                    <div className="userbox">
+                      <div className="camera_connect"><span className="glyphicon glyphicon-camera"></span></div>
+                      <p className="username">Ilan</p>
+                    </div>
+                  </div>
+                  <div className="users">
+                    <div className="userbox">
+                      <div className="camera_connect"><span className="glyphicon glyphicon-camera"></span></div>
+                      <p className="username">Anton</p>
+                    </div>
+                  </div>
+                  <div className="users">
+                    <div className="userbox">
+                      <div className="camera_connect"><span className="glyphicon glyphicon-camera"></span></div>
+                      <p className="username">Feifan</p>
+                    </div>
+                  </div>
+                </div>
+                <div className="uservideos col-xs-6">
+                  <h4>Video</h4>
+                  <div className="videobox">
+                    <div className="video">
+                      
+                    </div>
+                    <div className="videoname">
+                      Shuo
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div className="chat col-xs-3">
+              <i className="fa fa-arrow-left" id="expand"></i>
+                <section className="navbar">
+                  <h4>Conversation</h4>
+                  <button className="camera"><i className="fa fa-video-camera"></i></button>
+                </section>
+                <section className="chatbox">
+                  <div className="messagesBox">
+                    <div className="messageContainer">
+                      <div className="username">Ilan</div>
+                      <div className="message">geese</div>
+                    </div>
+                    <div className="messageContainer">
+                      <div className="username">Anton</div>
+                      <div className="message">need to finish algo hw</div>
+                    </div>
+                    <div className="messageContainer">
+                      <div className="username">Shuo</div>
+                      <div className="message">Okay dokes</div>
+                    </div>
+                  </div>
+                </section>
+                <section className="inputBox row">
+                  <input className="newMessage col-xs-8" placeholder="chat here">
+                  <button type="submit" className="col-xs-2 btn btn-primary">Send</button>
+                </section>
+              </div> 
             </div>
-          </div>
-          <div class="users">
-            <div class="userbox">
-              <div class="camera_connect"><span class="glyphicon glyphicon-camera"></span></div>
-              <p class="username">Ilan</p>
-            </div>
-          </div>
-          <div class="users">
-            <div class="userbox">
-              <div class="camera_connect"><span class="glyphicon glyphicon-camera"></span></div>
-              <p class="username">Anton</p>
-            </div>
-          </div>
-          <div class="users">
-            <div class="userbox">
-              <div class="camera_connect"><span class="glyphicon glyphicon-camera"></span></div>
-              <p class="username">Feifan</p>
-            </div>
-          </div>
-        </div>
-        <div class="uservideos col-xs-6">
-          <h4>Video</h4>
-          <div class="videobox">
-            <div class="video">
-              
-            </div>
-            <div class="videoname">
-              Shuo
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="chat col-xs-3">
-      <i class="fa fa-arrow-left" id="expand"></i>
-        <section class="navbar">
-          <h4>Conversation</h4>
-          <button class="camera"><i class="fa fa-video-camera"></i></button>
-        </section>
-        <section class="chatbox">
-          <div class="messagesBox">
-            <div class="messageContainer">
-              <div class="username">Ilan</div>
-              <div class="message">geese</div>
-            </div>
-            <div class="messageContainer">
-              <div class="username">Anton</div>
-              <div class="message">need to finish algo hw</div>
-            </div>
-            <div class="messageContainer">
-              <div class="username">Shuo</div>
-              <div class="message">Okay dokes</div>
-            </div>
-          </div>
-        </section>
-        <section class="inputBox row">
-          <input class="newMessage col-xs-8" placeholder="chat here">
-          <button type="submit" class="col-xs-2 btn btn-primary">Send</button>
-        </section>
-      </div> 
-    </div>
 
 module.exports = DeChat

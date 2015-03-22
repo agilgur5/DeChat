@@ -1,70 +1,68 @@
-/*  #chat_container {
-    width:100%;
-    z-index:99999999999;
-    float:right;
-    overflow: hidden;
-    display:inline;
-    background-color:red;
-    padding: 0px;
-    margin: 0px;
-    font-size: 14px;
-    font-family: proxima-nova, "Helvetica Neue", Arial, sans-serif;
-*/
-.s {
-  height: 100vh; }
-  .s .foldIn .chatroom {
-    top: 0px;
-    left: 0px;
-    bottom: 0px;
-    right: 0px;
-    height: 100%;
-    border: 1px solid black;
-    text-align: center;
-    overflow: scroll; }
-    .s .foldIn .chatroom .room {
+#chat_container {
+  float: right;
+  overflow: hidden;
+  display: inline;
+  background-color: red;
+  padding: 0px;
+  margin: 0px;
+  font-size: 14px;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  font-family: proxima-nova, "Helvetica Neue", Arial, sans-serif; }
+  #chat_container .s {
+    height: 100vh; }
+    #chat_container .s .foldIn .chatroom {
+      top: 0px;
+      left: 0px;
+      bottom: 0px;
+      right: 0px;
+      height: 100%;
       border: 1px solid black;
-      padding: 10px 0px 10px 0px;
-      margin: 10px 0px 10px 0px; }
-  .s .foldIn .usersBoxContainer {
-    height: 100vh;
-    overflow: scroll;
-    top: 0px;
-    left: 0px;
-    bottom: 0px;
-    right: 0px;
-    border: 1px solid black; }
-    .s .foldIn .usersBoxContainer .h3 {
-      text-align: center; }
-    .s .foldIn .usersBoxContainer .users {
-      border-top: 1px solid black; }
-      .s .foldIn .usersBoxContainer .users .userbox .camera_connect {
-        float: left; }
-  .s .foldIn .uservideos .videobox {
-    margin: 10px 10px 10px 10px;
-    border: 1px solid black; }
-  .s .chat {
-    height: 100vh;
-    overflow: scroll;
-    top: 0px;
-    left: 0px;
-    bottom: 0px;
-    right: 0px;
-    border: 1px solid black; }
-    .s .chat .fa-arrow-left {
-      position: absolute;
-      top: 300px;
-      padding-right: -10px;
-      margin-right: -10px; }
-    .s .chat .navbar h4 {
-      float: left; }
-    .s .chat .navbar .camera {
-      margin: 5px 1px 0px 0px;
-      float: right; }
-    .s .chat .chatbox {
-      border: 1px solid black;
+      text-align: center;
+      overflow: scroll; }
+      #chat_container .s .foldIn .chatroom .room {
+        border: 1px solid black;
+        padding: 10px 0px 10px 0px;
+        margin: 10px 0px 10px 0px; }
+    #chat_container .s .foldIn .usersBoxContainer {
+      height: 100vh;
       overflow: scroll;
-      height: 80vh; }
-      .s .chat .chatbox .messagesBox .messageContainer {
-        border-bottom: 1px solid black; }
-
-/*}*/
+      top: 0px;
+      left: 0px;
+      bottom: 0px;
+      right: 0px;
+      border: 1px solid black; }
+      #chat_container .s .foldIn .usersBoxContainer .h3 {
+        text-align: center; }
+      #chat_container .s .foldIn .usersBoxContainer .users {
+        border-top: 1px solid black; }
+        #chat_container .s .foldIn .usersBoxContainer .users .userbox .camera_connect {
+          float: left; }
+    #chat_container .s .foldIn .uservideos .videobox {
+      margin: 10px 10px 10px 10px;
+      border: 1px solid black; }
+    #chat_container .s .chat {
+      height: 100vh;
+      overflow: scroll;
+      top: 0px;
+      left: 0px;
+      bottom: 0px;
+      right: 0px;
+      border: 1px solid black; }
+      #chat_container .s .chat .fa-arrow-left {
+        position: absolute;
+        top: 300px;
+        padding-right: -10px;
+        margin-right: -10px; }
+      #chat_container .s .chat .navbar h4 {
+        float: left; }
+      #chat_container .s .chat .navbar .camera {
+        margin: 5px 1px 0px 0px;
+        float: right; }
+      #chat_container .s .chat .chatbox {
+        border: 1px solid black;
+        overflow: scroll;
+        height: 80vh; }
+        #chat_container .s .chat .chatbox .messagesBox .messageContainer {
+          border-bottom: 1px solid black; }

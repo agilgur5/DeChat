@@ -28,115 +28,115 @@ React = require('react');
 DeChat = React.createClass({
   render: function() {
     return React.createElement("div", {
-      "class": "s container"
+      "className": "s container"
     }, React.createElement("div", {
-      "class": "foldIn"
+      "className": "foldIn"
     }, React.createElement("div", {
-      "class": "chatroom col-xs-1"
+      "className": "chatroom col-xs-1"
     }, React.createElement("h4", null, "Channels"), React.createElement("div", {
-      "class": "room"
+      "className": "room"
     }, "FB"), React.createElement("div", {
-      "class": "room"
+      "className": "room"
     }, "AP"), React.createElement("div", {
-      "class": "room"
+      "className": "room"
     }, "AB"), React.createElement("div", {
-      "class": "room"
+      "className": "room"
     }, "SP"), React.createElement("div", {
-      "class": "room"
+      "className": "room"
     }, "FB"), React.createElement("div", {
-      "class": "room"
+      "className": "room"
     }, "AP"), React.createElement("div", {
-      "class": "room"
+      "className": "room"
     }, "AB"), React.createElement("div", {
-      "class": "room"
+      "className": "room"
     }, "SP")), React.createElement("div", {
-      "class": "usersBoxContainer col-xs-2"
+      "className": "usersBoxContainer col-xs-2"
     }, React.createElement("h4", null, "Users"), React.createElement("div", {
-      "class": "users"
+      "className": "users"
     }, React.createElement("div", {
-      "class": "userbox"
+      "className": "userbox"
     }, React.createElement("div", {
-      "class": "camera_connect"
+      "className": "camera_connect"
     }, React.createElement("span", {
-      "class": "glyphicon glyphicon-camera"
+      "className": "glyphicon glyphicon-camera"
     })), React.createElement("p", {
-      "class": "username"
+      "className": "username"
     }, "Shuo"))), React.createElement("div", {
-      "class": "users"
+      "className": "users"
     }, React.createElement("div", {
-      "class": "userbox"
+      "className": "userbox"
     }, React.createElement("div", {
-      "class": "camera_connect"
+      "className": "camera_connect"
     }, React.createElement("span", {
-      "class": "glyphicon glyphicon-camera"
+      "className": "glyphicon glyphicon-camera"
     })), React.createElement("p", {
-      "class": "username"
+      "className": "username"
     }, "Ilan"))), React.createElement("div", {
-      "class": "users"
+      "className": "users"
     }, React.createElement("div", {
-      "class": "userbox"
+      "className": "userbox"
     }, React.createElement("div", {
-      "class": "camera_connect"
+      "className": "camera_connect"
     }, React.createElement("span", {
-      "class": "glyphicon glyphicon-camera"
+      "className": "glyphicon glyphicon-camera"
     })), React.createElement("p", {
-      "class": "username"
+      "className": "username"
     }, "Anton"))), React.createElement("div", {
-      "class": "users"
+      "className": "users"
     }, React.createElement("div", {
-      "class": "userbox"
+      "className": "userbox"
     }, React.createElement("div", {
-      "class": "camera_connect"
+      "className": "camera_connect"
     }, React.createElement("span", {
-      "class": "glyphicon glyphicon-camera"
+      "className": "glyphicon glyphicon-camera"
     })), React.createElement("p", {
-      "class": "username"
+      "className": "username"
     }, "Feifan")))), React.createElement("div", {
-      "class": "uservideos col-xs-6"
+      "className": "uservideos col-xs-6"
     }, React.createElement("h4", null, "Video"), React.createElement("div", {
-      "class": "videobox"
+      "className": "videobox"
     }, React.createElement("div", {
-      "class": "video"
+      "className": "video"
     }), React.createElement("div", {
-      "class": "videoname"
+      "className": "videoname"
     }, "Shuo")))), React.createElement("div", {
-      "class": "chat col-xs-3"
+      "className": "chat col-xs-3"
     }, React.createElement("i", {
-      "class": "fa fa-arrow-left",
+      "className": "fa fa-arrow-left",
       "id": "expand"
     }), React.createElement("section", {
-      "class": "navbar"
+      "className": "navbar"
     }, React.createElement("h4", null, "Conversation"), React.createElement("button", {
-      "class": "camera"
+      "className": "camera"
     }, React.createElement("i", {
-      "class": "fa fa-video-camera"
+      "className": "fa fa-video-camera"
     }))), React.createElement("section", {
-      "class": "chatbox"
+      "className": "chatbox"
     }, React.createElement("div", {
-      "class": "messagesBox"
+      "className": "messagesBox"
     }, React.createElement("div", {
-      "class": "messageContainer"
+      "className": "messageContainer"
     }, React.createElement("div", {
-      "class": "username"
+      "className": "username"
     }, "Ilan"), React.createElement("div", {
-      "class": "message"
+      "className": "message"
     }, "geese")), React.createElement("div", {
-      "class": "messageContainer"
+      "className": "messageContainer"
     }, React.createElement("div", {
-      "class": "username"
+      "className": "username"
     }, "Anton"), React.createElement("div", {
-      "class": "message"
+      "className": "message"
     }, "need to finish algo hw")), React.createElement("div", {
-      "class": "messageContainer"
+      "className": "messageContainer"
     }, React.createElement("div", {
-      "class": "username"
+      "className": "username"
     }, "Shuo"), React.createElement("div", {
-      "class": "message"
-    }, "Im fucked next week")))), React.createElement("section", {
-      "class": "inputBox row"
-    }, "\x3Cinput class=\"newMessage col-xs-8\" placeholder=\"chat here\"\x3E", React.createElement("button", {
+      "className": "message"
+    }, "Okay dokes")))), React.createElement("section", {
+      "className": "inputBox row"
+    }, "\x3Cinput className=\"newMessage col-xs-8\" placeholder=\"chat here\"\x3E", React.createElement("button", {
       "type": "submit",
-      "class": "col-xs-2 btn btn-primary"
+      "className": "col-xs-2 btn btn-primary"
     }, "Send"))));
   }
 });
