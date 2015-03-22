@@ -1,5 +1,5 @@
-@import url(css/boostrap.css);
-@import url(css/font-awesome.css);
+@import url("https//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css");
+@import url('https//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css');
 #chat_container {
   z-index: 99999999999;
   float: right;
@@ -69,4 +69,3 @@
         height: 80vh; }
         #chat_container .s .chat .chatbox .messagesBox .messageContainer {
           border-bottom: 1px solid black; }
-
