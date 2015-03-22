@@ -1,6 +1,6 @@
 # dependencies
 React = require('react')
-Icecomm = require('./scripts/icecomm')
+DeChat = require('./dechat')
 
 # add container for chat into the body
 chat_container_div = document.createElement("div")
@@ -9,5 +9,3 @@ document.body.appendChild(chat_container_div)
 
 # render our react component
 React.render(<DeChat />, chat_container_div)
-
-
