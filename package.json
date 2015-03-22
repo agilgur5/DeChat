@@ -5,7 +5,7 @@
   "main": "chat.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "bundle": "browserify chat_bundle.coffee -o chat_bundle_compiled.js",
+    "bundle": "browserify chat_bundle.coffee -o chat_bundle_compiled.js & node-sass chat.scss chat.css",
     "watch-js": "watchify chat_bundle.coffee -o chat_bundle_compiled.js",
     "start": "npm run watch-js"
   },
@@ -15,6 +15,8 @@
   "devDependencies": {
     "browserify": "~6.2.0",
     "coffee-reactify": "~2.0.0",
+    "minify": "^1.4.10",
+    "node-sass": "^3.0.0-alpha.0",
     "watchify": "~2.1.1"
   },
   "browserify": {
