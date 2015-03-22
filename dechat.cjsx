@@ -27,30 +27,16 @@ DeChat = React.createClass
           </div>
           <div className="usersBoxContainer col-xs-2">
             <h4>Users</h4>
+            <ul class="userlist">
             <div className="users">
               <div className="userbox">
-                <div className="camera_connect"><span className="glyphicon glyphicon-camera"></span></div>
+                <p className="username">Shuo</p>
+              </div>
+              <div className="userbox">
                 <p className="username">Shuo</p>
               </div>
             </div>
-            <div className="users">
-              <div className="userbox">
-                <div className="camera_connect"><span className="glyphicon glyphicon-camera"></span></div>
-                <p className="username">Ilan</p>
-              </div>
-            </div>
-            <div className="users">
-              <div className="userbox">
-                <div className="camera_connect"><span className="glyphicon glyphicon-camera"></span></div>
-                <p className="username">Anton</p>
-              </div>
-            </div>
-            <div className="users">
-              <div className="userbox">
-                <div className="camera_connect"><span className="glyphicon glyphicon-camera"></span></div>
-                <p className="username">Feifan</p>
-              </div>
-            </div>
+            </ul>
           </div>
           <div className="uservideos col-xs-8">
             <h4>Video</h4>
