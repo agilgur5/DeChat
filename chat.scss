@@ -43,14 +43,18 @@
           .h3 {
             text-align: center;
           }
+          .userlist{
+            list-style: none;
+          }
           .users {
-              border-top: 1px solid black;
             .userbox {
-              .camera_connect {
-                float: left;
-              }
+                border: 1px solid transparentize(#AAA,0.5);
+                -webkit-box-shadow: 7px 6px 3px -3px rgba(167,167,167,1);
+                -moz-box-shadow: 7px 6px 3px -3px rgba(167,167,167,1);
+                box-shadow: 7px 6px 3px -3px rgba(167,167,167,1);
+                margin-bottom:15px;
               .username {
-              
+                text-align:center;
               }
             }
           }

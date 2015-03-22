@@ -7071,10 +7071,16 @@ button.close {
       border: 1px solid black; }
       #chat_container .s .foldIn .usersBoxContainer .h3 {
         text-align: center; }
-      #chat_container .s .foldIn .usersBoxContainer .users {
-        border-top: 1px solid black; }
-        #chat_container .s .foldIn .usersBoxContainer .users .userbox .camera_connect {
-          float: left; }
+      #chat_container .s .foldIn .usersBoxContainer .userlist {
+        list-style: none; }
+      #chat_container .s .foldIn .usersBoxContainer .users .userbox {
+        border: 1px solid rgba(170, 170, 170, 0.5);
+        -webkit-box-shadow: 7px 6px 3px -3px #a7a7a7;
+        -moz-box-shadow: 7px 6px 3px -3px #a7a7a7;
+        box-shadow: 7px 6px 3px -3px #a7a7a7;
+        margin-bottom: 15px; }
+        #chat_container .s .foldIn .usersBoxContainer .users .userbox .username {
+          text-align: center; }
     #chat_container .s .foldIn .uservideos {
       border-top: 1px solid black; }
       #chat_container .s .foldIn .uservideos li {
