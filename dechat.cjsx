@@ -1,7 +1,5 @@
 React = require('react')
-
-# var comm = new Icecomm('4Mt09Xq/gyUee2TyDE.qC1.Lg2cXec.ZWBq3AGy32ZnDpsnP0.');
-
+ChatAPI = require('./icecomm_wrapper.coffee')
 
 
 DeChat = React.createClass
