@@ -7097,7 +7097,6 @@ button.close {
       -webkit-box-shadow: #2e4a75 7px 6px 12px -2px;
       box-shadow: #2e4a75 7px 6px 12px -2px;
       height: 100vh;
-      overflow: scroll;
       top: 0px;
       left: 0px;
       bottom: 0px;
@@ -7120,7 +7119,7 @@ button.close {
           float: right; }
       #chat_container .s .chat .chatbox {
         overflow: scroll;
-        height: 100vh; }
+        max-height: 87.5%; }
         #chat_container .s .chat .chatbox .messageContainer {
           width: 90%;
           margin-left: 0px;
@@ -7146,13 +7145,20 @@ button.close {
           background: white; }
           #chat_container .s .chat .chatbox .isme .message {
             color: #00CC66; }
-      #chat_container .s .chat .inputBox .newMessage {
-        margin: 15px;
-        width: 64%; }
-      #chat_container .s .chat .inputBox .send {
-        background: #00CC66;
-        margin-left: -0.8em;
-        height: 2.1em;
-        line-height: 1.05em;
-        margin-top: -0.3em;
-        width: 24%; }
+      #chat_container .s .chat .inputBox {
+        bottom: 5px;
+        width: 90%;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        position: absolute; }
+        #chat_container .s .chat .inputBox .newMessage {
+          margin: 15px;
+          width: 64%; }
+        #chat_container .s .chat .inputBox .send {
+          background: #00CC66;
+          margin-left: -0.8em;
+          height: 2.1em;
+          line-height: 1.05em;
+          margin-top: -0.3em;
+          width: 24%; }

@@ -123,6 +123,42 @@ DeChat = React.createClass
                       <span>Today this is a great day and I had so much fun coding</span>
                     </div>
                   </div>
+                  <div className="isme messageContainer">
+                    <div className="username">Ilan</div>
+                    <div className="message">
+                      <span>Today this is a great day and I had so much fun coding</span>
+                    </div>
+                  </div>
+                  <div className="messageContainer">
+                    <div className="username">Ilan</div>
+                    <div className="message">
+                      <span>Today this is a great day and I had so much fun coding</span>
+                    </div>
+                  </div>
+                  <div className="messageContainer">
+                    <div className="username">Ilan</div>
+                    <div className="message">
+                      <span>Today this is a great day and I had so much fun coding</span>
+                    </div>
+                  </div>
+                  <div className="isme messageContainer">
+                    <div className="username">Ilan</div>
+                    <div className="message">
+                      <span>Today this is a great day and I had so much fun coding</span>
+                    </div>
+                  </div>
+                  <div className="messageContainer">
+                    <div className="username">Ilan</div>
+                    <div className="message">
+                      <span>Today this is a great day and I had so much fun coding</span>
+                    </div>
+                  </div>
+                  <div className="messageContainer">
+                    <div className="username">Ilan</div>
+                    <div className="message">
+                      <span>Today this is a great day and I had so much fun coding</span>
+                    </div>
+                  </div>
                 </section>
                 <section className="inputBox row">
                     <input className="newMessage" placeholder="chat here"></input>

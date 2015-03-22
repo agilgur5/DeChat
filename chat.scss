@@ -90,7 +90,6 @@
         -webkit-box-shadow: rgb(46, 74, 117) 7px 6px 12px -2px;
         box-shadow: rgb(46, 74, 117) 7px 6px 12px -2px;
         height:  100vh;
-        overflow: scroll;
         top: 0px;
         left: 0px;
         bottom: 0px;
@@ -117,8 +116,8 @@
           }
         }
         .chatbox {
-          overflow: scroll;
-          height: 100vh;
+            overflow: scroll;
+            max-height: 87.5%;
           .messageContainer {
             width:90%;
             margin-left:0px;
@@ -151,6 +150,12 @@
           }
         }
         .inputBox {
+          bottom:5px;
+          width:90%;
+          display:block;
+          margin-left:auto;
+          margin-right:auto;
+          position:absolute;
           .newMessage{
             margin:15px;
             width:64%;
