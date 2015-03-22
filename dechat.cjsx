@@ -61,30 +61,31 @@ DeChat = React.createClass
                 </div>
               </div>
               <div className="chat col-xs-3">
-              <i className="fa fa-arrow-left" id="expand"></i>
                 <section className="navbar">
                   <h4>Conversation</h4>
                   <button className="camera"><i className="fa fa-video-camera"></i></button>
                 </section>
                 <section className="chatbox">
                   <div className="messagesBox">
+                    <div className="username">Ilan</div>
                     <div className="messageContainer">
-                      <div className="username">Ilan</div>
+                      <div className="message">
+                        <span>Today this is a great day and I had so much fun coding</span>
+                      </div>
+                    </div>
+                    <div className="username">Ilan</div>
+                    <div className="messageContainer">
                       <div className="message">geese</div>
                     </div>
+                    <div className="username">Ilan</div>
                     <div className="messageContainer">
-                      <div className="username">Anton</div>
-                      <div className="message">need to finish algo hw</div>
-                    </div>
-                    <div className="messageContainer">
-                      <div className="username">Shuo</div>
-                      <div className="message">Okay dokes</div>
+                      <div className="message">geese</div>
                     </div>
                   </div>
                 </section>
                 <section className="inputBox row">
-                  <input className="newMessage col-xs-8" placeholder="chat here">
-                  <button type="submit" className="col-xs-2 btn btn-primary">Send</button>
+                  <input className="newMessage" placeholder="chat here"></input>
+                  <button type="submit" className="send btn btn-primary">Send</button>
                 </section>
               </div> 
             </div>
