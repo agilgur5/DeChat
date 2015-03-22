@@ -1,0 +1,114 @@
+/*  #chat_container {
+    width:100%;
+    z-index:99999999999;
+    float:right;
+    overflow: hidden;
+    display:inline;
+    background-color:red;
+    padding: 0px;
+    margin: 0px;
+    font-size: 14px;
+    font-family: proxima-nova, "Helvetica Neue", Arial, sans-serif;
+*/
+    .s {
+      height: 100vh;
+      .foldIn {
+        .chatroom {
+          top: 0px;
+          left: 0px;
+          bottom: 0px;
+          right: 0px;
+          height: 100%;
+          border: 1px solid black;
+          text-align:center;
+          overflow: scroll;
+          .room {
+            border: 1px solid black;
+            padding: 10px 0px 10px 0px;
+            margin: 10px 0px 10px 0px;
+            
+          }
+        }
+        .usersBoxContainer {
+          height: 100vh;
+          overflow: scroll;
+          top: 0px;
+          left: 0px;
+          bottom: 0px;
+          right: 0px;
+          border: 1px solid black;
+          .h3 {
+            text-align: center;
+          }
+          .users {
+              border-top: 1px solid black;
+            .userbox {
+              .camera_connect {
+                float: left;
+              }
+              .username {
+              
+              }
+            }
+          }
+          // height: 100vh;
+        }
+        .uservideos {
+          .videobox {
+            margin: 10px 10px 10px 10px;
+            border: 1px solid black;
+            .video {
+              
+            }
+            .videoname {
+
+            }
+          }
+        }
+      }
+      .chat {
+        height:  100vh;
+        overflow: scroll;
+        top: 0px;
+        left: 0px;
+        bottom: 0px;
+        right: 0px;
+        border: 1px solid black;
+        .fa-arrow-left {
+          position: absolute;
+          top: 300px;
+          padding-right: -10px;
+          margin-right: -10px;
+        }
+        .navbar {
+          h4 {
+            float: left;
+          }
+          .camera {
+            margin: 5px 1px 0px 0px;
+            float: right;
+          }
+        }
+        .chatbox {
+          border: 1px solid black;
+          overflow: scroll;
+          height: 80vh;
+          .messagesBox {
+            .messageContainer {
+              border-bottom: 1px solid black;
+              .username {
+              }
+              .message {
+              }
+            }
+          }
+        }
+        .inputBox {
+          .newMessage{
+
+          }
+
+        }
+      }
+    }
+/*}*/
