@@ -30,12 +30,12 @@ DeChat = React.createClass({
     return React.createElement("div", {
       "className": "s container"
     }, React.createElement("div", {
-      "className": "col-xs-9"
+      "className": "col-xs-9 biggest"
     }, React.createElement("div", {
       "className": "foldIn row"
     }, React.createElement("div", {
       "className": "chatroom col-xs-2"
-    }, React.createElement("h4", null, "Channels"), React.createElement("div", {
+    }, React.createElement("h4", null, "Chatrooms"), React.createElement("div", {
       "className": "room"
     }, "FB"), React.createElement("div", {
       "className": "room"

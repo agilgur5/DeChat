@@ -7,10 +7,10 @@ React = require('react')
 DeChat = React.createClass
   render: () ->
     return <div className="s container">
-              <div className="col-xs-9">
+              <div className="col-xs-9 biggest">
                 <div className="foldIn row">
                   <div className="chatroom col-xs-2">
-                    <h4>Channels</h4>
+                    <h4>Chatrooms</h4>
                     <div className="room">FB</div>
                     <div className="room">AP</div>
                     <div className="room">AB</div>
