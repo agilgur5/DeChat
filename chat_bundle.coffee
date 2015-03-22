@@ -1,1 +1,1 @@
-require('./chat')
+require('./chat.cjsx')
