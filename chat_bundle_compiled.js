@@ -30,9 +30,11 @@ DeChat = React.createClass({
     return React.createElement("div", {
       "className": "s container"
     }, React.createElement("div", {
-      "className": "foldIn"
+      "className": "col-xs-9"
     }, React.createElement("div", {
-      "className": "chatroom col-xs-1"
+      "className": "foldIn row"
+    }, React.createElement("div", {
+      "className": "chatroom col-xs-2"
     }, React.createElement("h4", null, "Channels"), React.createElement("div", {
       "className": "room"
     }, "FB"), React.createElement("div", {
@@ -92,14 +94,14 @@ DeChat = React.createClass({
     })), React.createElement("p", {
       "className": "username"
     }, "Feifan")))), React.createElement("div", {
-      "className": "uservideos col-xs-6"
+      "className": "uservideos col-xs-8"
     }, React.createElement("h4", null, "Video"), React.createElement("div", {
       "className": "videobox"
     }, React.createElement("div", {
       "className": "video"
     }), React.createElement("div", {
       "className": "videoname"
-    }, "Shuo")))), React.createElement("div", {
+    }, "Shuo"))))), React.createElement("div", {
       "className": "chat col-xs-3"
     }, React.createElement("i", {
       "className": "fa fa-arrow-left",
