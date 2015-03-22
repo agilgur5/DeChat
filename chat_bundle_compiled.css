@@ -7054,6 +7054,8 @@ button.close {
       height: 100%;
       text-align: center;
       overflow: scroll; }
+      #chat_container .s .foldIn .chatroom .chatroomlist {
+        list-style: none; }
       #chat_container .s .foldIn .chatroom .room {
         border: 1px solid rgba(170, 170, 170, 0.5);
         -webkit-box-shadow: 7px 6px 3px -3px #a7a7a7;
