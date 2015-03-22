@@ -14,9 +14,7 @@ DeChat = React.createClass
         <div className="foldIn row">
           <div className="chatroom col-xs-2">
             <h4>Chatrooms</h4>
-            <ul class="chatroomlist">
-              <div className="room">FB</div>
-            </ul>
+            <ChatRoomList rooms={ChatAPI.rooms} />
           </div>
           <div className="usersBoxContainer col-xs-2">
             <h4>Users</h4>
@@ -37,6 +35,15 @@ DeChat = React.createClass
         <MessageSender currentChannel={@state.currentChannel} />
       </div> 
     </div>
+
+ChatRoomList = React.createClass
+  render: () ->
+    rooms = []
+    for key of @props.rooms
+      rooms.push <div className="room">{key}</div>
+    return <ul class="chatroomlist">
+      {rooms}
+    </ul>
 
 UsersList = React.createClass
   render: () ->

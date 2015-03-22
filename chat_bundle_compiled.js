@@ -21,7 +21,7 @@ require('./chat.cjsx');
 
 
 },{"./chat.cjsx":1}],3:[function(require,module,exports){
-var ChatAPI, DeChat, MessageContainer, MessageSender, React, UsersList, VideoContainer;
+var ChatAPI, ChatRoomList, DeChat, MessageContainer, MessageSender, React, UsersList, VideoContainer;
 
 React = require('react');
 
@@ -49,11 +49,9 @@ DeChat = React.createClass({
       "className": "foldIn row"
     }, React.createElement("div", {
       "className": "chatroom col-xs-2"
-    }, React.createElement("h4", null, "Chatrooms"), React.createElement("ul", {
-      "class": "chatroomlist"
-    }, React.createElement("div", {
-      "className": "room"
-    }, "FB"))), React.createElement("div", {
+    }, React.createElement("h4", null, "Chatrooms"), React.createElement(ChatRoomList, {
+      "rooms": ChatAPI.rooms
+    })), React.createElement("div", {
       "className": "usersBoxContainer col-xs-2"
     }, React.createElement("h4", null, "Users"), React.createElement(UsersList, {
       "users": ChatAPI.rooms[ChatAPI.currentRoomID].users
@@ -74,6 +72,21 @@ DeChat = React.createClass({
     }), React.createElement(MessageSender, {
       "currentChannel": this.state.currentChannel
     })));
+  }
+});
+
+ChatRoomList = React.createClass({
+  render: function() {
+    var key, rooms;
+    rooms = [];
+    for (key in this.props.rooms) {
+      rooms.push(React.createElement("div", {
+        "className": "room"
+      }, key));
+    }
+    return React.createElement("ul", {
+      "class": "chatroomlist"
+    }, rooms);
   }
 });
 
