@@ -66,13 +66,13 @@ DeChat = React.createClass
     </div>
 
 VideoContainer = React.createClass
-  videos = @props.users.map (elem) ->
-    return <li>
-      <div className="videobox">
-        <div className="video"><video src={elem.stream}></video></div>
-      </div>
-    </li>
   render: () ->
+    videos = @props.users.map (elem) ->
+      return <li>
+        <div className="videobox">
+          <div className="video"><video src={elem.stream}></video></div>
+        </div>
+      </li>
     return <ul>
       {videos}
     </ul>
@@ -81,7 +81,7 @@ MessageContainer = React.createClass
   render: () -> 
     messages = @props.messages.map (elem) ->
       name = ChatAPI.rooms[ChatAPI.currentRoomID].users[elem.callerID]
-      isme = "isme" if elem.callerID == ChatAPI.userID else ""
+      isme = if elem.callerID == ChatAPI.userID then "isme" else ""
       return <div className={"messageContainer" + " " + isme}>
         <div className="username">{name}</div>
         <div className="message">

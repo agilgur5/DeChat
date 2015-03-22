@@ -32,14 +32,14 @@ createChatRoom = () ->
   currentRoomID = crypto.randomBytes(20).toString('hex')
   addLocalChatRoom(currentRoomID)
   comm.connect(currentRoomID)
-  comm.send(encrypt({name: username})
+  comm.send(encrypt({name: username}))
 
 # join a chat room
 joinChatRoom = (roomID) ->
   currentRoomID = roomID
   addLocalChatRoom(currentRoomID)
   comm.connect(currentRoomID)
-  comm.send(encrypt({name: username})
+  comm.send(encrypt({name: username}))
 
 # add a channel locally (helper)
 addLocalChannel = (channelName) -> 
@@ -90,7 +90,7 @@ receiveConnection = (options) ->
 # TODO: Flux the rooms variable and possibly username/userID/currentRoomID
 
 
-comm.on('data', receiveMessage)
+comm.on('data', receiveData)
 comm.on('connected', receiveConnection)
 
 module.exports = {
