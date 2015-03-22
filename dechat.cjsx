@@ -14,14 +14,9 @@ DeChat = React.createClass
         <div className="foldIn row">
           <div className="chatroom col-xs-2">
             <h4>Chatrooms</h4>
-            <div className="room">FB</div>
-            <div className="room">AP</div>
-            <div className="room">AB</div>
-            <div className="room">SP</div>
-            <div className="room">FB</div>
-            <div className="room">AP</div>
-            <div className="room">AB</div>
-            <div className="room">SP</div>
+            <ul class="chatroomlist">
+              <div className="room">FB</div>
+            </ul>
           </div>
           <div className="usersBoxContainer col-xs-2">
             <h4>Users</h4>

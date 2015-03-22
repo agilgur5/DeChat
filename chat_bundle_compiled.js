@@ -49,23 +49,11 @@ DeChat = React.createClass({
       "className": "foldIn row"
     }, React.createElement("div", {
       "className": "chatroom col-xs-2"
-    }, React.createElement("h4", null, "Chatrooms"), React.createElement("div", {
+    }, React.createElement("h4", null, "Chatrooms"), React.createElement("ul", {
+      "class": "chatroomlist"
+    }, React.createElement("div", {
       "className": "room"
-    }, "FB"), React.createElement("div", {
-      "className": "room"
-    }, "AP"), React.createElement("div", {
-      "className": "room"
-    }, "AB"), React.createElement("div", {
-      "className": "room"
-    }, "SP"), React.createElement("div", {
-      "className": "room"
-    }, "FB"), React.createElement("div", {
-      "className": "room"
-    }, "AP"), React.createElement("div", {
-      "className": "room"
-    }, "AB"), React.createElement("div", {
-      "className": "room"
-    }, "SP")), React.createElement("div", {
+    }, "FB"))), React.createElement("div", {
       "className": "usersBoxContainer col-xs-2"
     }, React.createElement("h4", null, "Users"), React.createElement(UsersList, {
       "users": ChatAPI.rooms[ChatAPI.currentRoomID].users

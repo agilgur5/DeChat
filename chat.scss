@@ -23,6 +23,9 @@
           height: 100%;
           text-align:center;
           overflow: scroll;
+          .chatroomlist{
+            list-style:none;
+          }
           .room {
             border: 1px solid transparentize(#AAA,0.5);
             -webkit-box-shadow: 7px 6px 3px -3px rgba(167,167,167,1);
