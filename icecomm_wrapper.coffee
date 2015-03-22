@@ -69,6 +69,7 @@ addLocalUserName = (name, callerID) ->
 
 # receive a message
 receiveData = (options) ->
+  console.log options
   data = decrypt(options.data)
   callerID = options.callerID
   # decode the data stream
@@ -88,13 +89,13 @@ receiveConnection = (options) ->
 
 
 # TODO: Flux the rooms variable and possibly username/userID/currentRoomID
-
-
+sendy = () -> comm.send('yoooo')
+setInterval(sendy, 1000)
 comm.on('data', receiveData)
 comm.on('connected', receiveConnection)
 
-createName("Joe")
-createChatRoom()
+createName("Anton")
+joinChatRoom("87d5d3539c0e4743d1825afb5be3cffb1e49605d")
 #userID = comm.getLocalID()
 
 module.exports = {
