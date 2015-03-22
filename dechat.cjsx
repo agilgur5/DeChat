@@ -3,56 +3,59 @@ React = require('react')
 # var comm = new Icecomm('4Mt09Xq/gyUee2TyDE.qC1.Lg2cXec.ZWBq3AGy32ZnDpsnP0.');
 
 
+
 DeChat = React.createClass
   render: () ->
     return <div className="s container">
-              <div className="foldIn">
-                <div className="chatroom col-xs-1">
-                  <h4>Channels</h4>
-                  <div className="room">FB</div>
-                  <div className="room">AP</div>
-                  <div className="room">AB</div>
-                  <div className="room">SP</div>
-                  <div className="room">FB</div>
-                  <div className="room">AP</div>
-                  <div className="room">AB</div>
-                  <div className="room">SP</div>
-                </div>
-                <div className="usersBoxContainer col-xs-2">
-                  <h4>Users</h4>
-                  <div className="users">
-                    <div className="userbox">
-                      <div className="camera_connect"><span className="glyphicon glyphicon-camera"></span></div>
-                      <p className="username">Shuo</p>
+              <div className="col-xs-9">
+                <div className="foldIn row">
+                  <div className="chatroom col-xs-2">
+                    <h4>Channels</h4>
+                    <div className="room">FB</div>
+                    <div className="room">AP</div>
+                    <div className="room">AB</div>
+                    <div className="room">SP</div>
+                    <div className="room">FB</div>
+                    <div className="room">AP</div>
+                    <div className="room">AB</div>
+                    <div className="room">SP</div>
+                  </div>
+                  <div className="usersBoxContainer col-xs-2">
+                    <h4>Users</h4>
+                    <div className="users">
+                      <div className="userbox">
+                        <div className="camera_connect"><span className="glyphicon glyphicon-camera"></span></div>
+                        <p className="username">Shuo</p>
+                      </div>
+                    </div>
+                    <div className="users">
+                      <div className="userbox">
+                        <div className="camera_connect"><span className="glyphicon glyphicon-camera"></span></div>
+                        <p className="username">Ilan</p>
+                      </div>
+                    </div>
+                    <div className="users">
+                      <div className="userbox">
+                        <div className="camera_connect"><span className="glyphicon glyphicon-camera"></span></div>
+                        <p className="username">Anton</p>
+                      </div>
+                    </div>
+                    <div className="users">
+                      <div className="userbox">
+                        <div className="camera_connect"><span className="glyphicon glyphicon-camera"></span></div>
+                        <p className="username">Feifan</p>
+                      </div>
                     </div>
                   </div>
-                  <div className="users">
-                    <div className="userbox">
-                      <div className="camera_connect"><span className="glyphicon glyphicon-camera"></span></div>
-                      <p className="username">Ilan</p>
-                    </div>
-                  </div>
-                  <div className="users">
-                    <div className="userbox">
-                      <div className="camera_connect"><span className="glyphicon glyphicon-camera"></span></div>
-                      <p className="username">Anton</p>
-                    </div>
-                  </div>
-                  <div className="users">
-                    <div className="userbox">
-                      <div className="camera_connect"><span className="glyphicon glyphicon-camera"></span></div>
-                      <p className="username">Feifan</p>
-                    </div>
-                  </div>
-                </div>
-                <div className="uservideos col-xs-6">
-                  <h4>Video</h4>
-                  <div className="videobox">
-                    <div className="video">
-                      
-                    </div>
-                    <div className="videoname">
-                      Shuo
+                  <div className="uservideos col-xs-8">
+                    <h4>Video</h4>
+                    <div className="videobox">
+                      <div className="video">
+                        
+                      </div>
+                      <div className="videoname">
+                        Shuo
+                      </div>
                     </div>
                   </div>
                 </div>
