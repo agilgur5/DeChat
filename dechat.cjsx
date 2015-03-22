@@ -72,7 +72,7 @@ DeChat = React.createClass
             </div>
             <div class="messageContainer">
               <div class="username">Shuo</div>
-              <div class="message">Im fucked next week</div>
+              <div class="message">Okay dokes</div>
             </div>
           </div>
         </section>
