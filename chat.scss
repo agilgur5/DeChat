@@ -95,21 +95,33 @@
           overflow: scroll;
           height: 80vh;
           .messageContainer {
-            margin-left:4px;
-            margin-right:4px;
+            width:90%;
+            margin-left:0px;
+            margin-right:15px;
             margin-top:0.75em;
             margin-bottom:0.75em;
             padding:5px;
-            border: 1px groove transparentize(#FFF,0.5);
+            border: 1px solid transparentize(#FFF,0.8);
             -webkit-box-shadow: 7px 6px 3px -3px rgba(167,167,167,1);
             -moz-box-shadow: 7px 6px 3px -3px rgba(167,167,167,1);
             box-shadow: 7px 6px 3px -3px rgba(167,167,167,1);
+            background:#00CC66;
+            border-radius:4px;
             .username{
               margin:0px;
               font-weight:bold;
             } 
             .message {
               display:inline;
+              color:white;
+            }
+          }
+          .isme{
+            margin-right:0px;
+            margin-left:15px;
+            background:white;
+            .message{
+              color:#00CC66;
             }
           }
         }

@@ -112,7 +112,7 @@ DeChat = React.createClass({
     }))), React.createElement("section", {
       "className": "chatbox"
     }, React.createElement("div", {
-      "className": "messageContainer"
+      "className": "isme messageContainer"
     }, React.createElement("div", {
       "className": "username"
     }, "Ilan"), React.createElement("div", {

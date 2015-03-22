@@ -7100,20 +7100,30 @@ button.close {
         overflow: scroll;
         height: 80vh; }
         #chat_container .s .chat .chatbox .messageContainer {
-          margin-left: 4px;
-          margin-right: 4px;
+          width: 90%;
+          margin-left: 0px;
+          margin-right: 15px;
           margin-top: 0.75em;
           margin-bottom: 0.75em;
           padding: 5px;
-          border: 1px groove rgba(255, 255, 255, 0.5);
+          border: 1px solid rgba(255, 255, 255, 0.2);
           -webkit-box-shadow: 7px 6px 3px -3px #a7a7a7;
           -moz-box-shadow: 7px 6px 3px -3px #a7a7a7;
-          box-shadow: 7px 6px 3px -3px #a7a7a7; }
+          box-shadow: 7px 6px 3px -3px #a7a7a7;
+          background: #00CC66;
+          border-radius: 4px; }
           #chat_container .s .chat .chatbox .messageContainer .username {
             margin: 0px;
             font-weight: bold; }
           #chat_container .s .chat .chatbox .messageContainer .message {
-            display: inline; }
+            display: inline;
+            color: white; }
+        #chat_container .s .chat .chatbox .isme {
+          margin-right: 0px;
+          margin-left: 15px;
+          background: white; }
+          #chat_container .s .chat .chatbox .isme .message {
+            color: #00CC66; }
       #chat_container .s .chat .inputBox .newMessage {
         margin: 15px;
         width: 64%; }
