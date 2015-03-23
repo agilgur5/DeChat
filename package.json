@@ -20,11 +20,13 @@
     "coffee-reactify": "~2.0.0",
     "minify": "^1.4.10",
     "node-sass": "^3.0.0-alpha.0",
-    "watchify": "~2.1.1"
+    "watchify": "~2.1.1",
+    "uglifyify": "~3.0.1"
   },
   "browserify": {
     "transform": [
-      "coffee-reactify"
+      "coffee-reactify",
+      "uglifyify"
     ]
   },
   "repository": {
