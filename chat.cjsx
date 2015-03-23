@@ -1,6 +1,6 @@
 # dependencies
 React = require('react')
-DeChat = require('./dechat.cjsx')
+DeChat = require('./chat_view.cjsx')
 
 
 # add container for chat into the body

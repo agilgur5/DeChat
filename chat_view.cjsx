@@ -1,5 +1,5 @@
 React = require('react')
-ChatAPI = require('./icecomm_wrapper.coffee')
+ChatAPI = require('./chat_api.coffee')
 
 DeChat = React.createClass
   getInitialState: () ->
@@ -97,11 +97,15 @@ MessageSender = React.createClass
   sendMessage: () ->
     ChatAPI.createMessage(@state.value, @props.currentChannel)
     @setState({value: ''})
+  handleKeyDown: (ev) ->
+    if ev.key == 'Enter'
+      @sendMessage()
   handleChange: (ev) ->
     @setState({value: ev.target.value})
   render: () ->
     return <section className="inputBox row">
-      <input className="newMessage" placeholder="chat here" value={@state.value} onChange={@handleChange}></input>
+      <input className="newMessage" placeholder="chat here" 
+        value={@state.value} onKeyDown={@handleKeyDown} onChange={@handleChange} />
       <button type="submit" className="send btn btn-primary" onClick={@sendMessage}>Send</button>
     </section>
 

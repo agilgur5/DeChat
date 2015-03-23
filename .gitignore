@@ -1,3 +1,6 @@
+# don't push builds
+build
+
 # Created by http://www.gitignore.io
 
 ### Sass ###
