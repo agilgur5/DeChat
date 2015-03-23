@@ -284,12 +284,12 @@ receiveData = function(options) {
   console.log(options);
   data = decrypt(options.data);
   callerID = options.callerID;
-  if (data[message] != null) {
-    return addLocalMessage(data[message], data[channel], callerID);
-  } else if (data[channel] != null) {
-    return addLocalChannel(data[channel]);
+  if (data.message != null) {
+    return addLocalMessage(data.message, data.channel, callerID);
+  } else if (data.channel != null) {
+    return addLocalChannel(data.channel);
   } else {
-    return addLocalUserName(data[name], callerID);
+    return addLocalUserName(data.name, callerID);
   }
 };
 
