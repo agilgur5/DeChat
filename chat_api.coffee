@@ -32,14 +32,12 @@ createChatRoom = () ->
   currentRoomID = crypto.randomBytes(20).toString('hex')
   addLocalChatRoom(currentRoomID)
   comm.connect(currentRoomID)
-  comm.send(encrypt({name: username}))
 
 # join a chat room
 joinChatRoom = (roomID) ->
   currentRoomID = roomID
   addLocalChatRoom(currentRoomID)
   comm.connect(currentRoomID)
-  comm.send(encrypt({name: username}))
 
 # add a channel locally (helper)
 addLocalChannel = (channelName) -> 
