@@ -86,6 +86,7 @@ addLocalUser = (stream, callerID) ->
 # receive a connection
 receiveConnection = (options) ->
   addLocalUser(options.stream, options.callerID)
+  comm.send(encrypt({name: username}))
 
 
 # TODO: Flux the rooms variable and possibly username/userID/currentRoomID
