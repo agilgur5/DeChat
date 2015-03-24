@@ -76,12 +76,11 @@ VideoContainer = React.createClass
 
 MessageContainer = React.createClass
   render: () -> 
-    messages = []
-    for key of @props.messages
-      elem = @props.messages[key]
-      name = ChatAPI.rooms[ChatAPI.currentRoomID].users[elem.callerID] || ChatAPI.username
+    messages = @props.messages.map (elem) ->
+      user = ChatAPI.rooms[ChatAPI.currentRoomID].users[elem.callerID]
+      name = if user? then user.name else ChatAPI.username
       isme = if elem.callerID == ChatAPI.userID then "isme" else ""
-      messages.push <div className={"messageContainer" + " " + isme}>
+      return <div className={"messageContainer" + " " + isme}>
         <div className="username">{name}</div>
         <div className="message">
           <span>{elem.text}</span>
