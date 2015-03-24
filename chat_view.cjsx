@@ -50,7 +50,6 @@ UsersList = React.createClass
     users = []
     for key of @props.users
       elem = @props.users[key]
-      console.log elem
       users.push <div className="userbox">
         <p className="username">{elem.name}</p>
       </div>
