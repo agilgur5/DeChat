@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "bundle-js": "browserify chat_bundle.coffee -o build/chat_bundle_compiled.js",
     "bundle-css": "node-sass chat_bundle.scss build/chat_bundle_compiled.css",
-    "watch-js": "watchify chat_bundle.coffee -o chat_bundle_compiled.js",
+    "watch-js": "watchify chat_bundle.coffee -o build/chat_bundle_compiled.js",
     "build": "npm run bundle-js & npm run bundle-css",
     "start": "npm run watch-js"
   },
